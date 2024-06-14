@@ -7596,6 +7596,8 @@ GameObject:
   - component: {fileID: 1539505305}
   - component: {fileID: 1539505307}
   - component: {fileID: 1539505306}
+  - component: {fileID: 1539505309}
+  - component: {fileID: 1539505308}
   m_Layer: 0
   m_Name: Summer
   m_TagString: Untagged
@@ -7691,6 +7693,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1539505308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539505304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872b1a19cebc809ae8961c2a5b6630d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  playerRigidbody: {fileID: 1539505309}
+  animator: {fileID: 1539505307}
+--- !u!50 &1539505309
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539505304}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1893272065
 GameObject:
   m_ObjectHideFlags: 0
