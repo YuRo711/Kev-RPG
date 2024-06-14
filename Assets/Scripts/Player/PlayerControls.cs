@@ -32,7 +32,7 @@ namespace Player
         private void Move(float inputX, float inputY)
         {
             playerRigidbody.MovePosition(transform.position + new Vector3(inputX, inputY) * 
-                (Time.fixedDeltaTime * speed));
+                (Time.deltaTime * speed));
 
             if (inputX != 0)
             {
@@ -62,7 +62,7 @@ namespace Player
             _animatorIsMovingHash = Animator.StringToHash("IsMoving");
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             GetKeyInput();
         }
