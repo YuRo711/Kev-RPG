@@ -7676,7 +7676,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1507954722, guid: e387cce974467ff9fbeabf41360a2066, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7724,9 +7724,9 @@ MonoBehaviour:
   characterRigidbody: {fileID: 1539505309}
   animator: {fileID: 1539505307}
   followers: []
-  traceLimit: 200
-  traceDistance: 50
-  speed: 15
+  traceLimit: 80
+  traceDistance: 20
+  speed: 8
 --- !u!50 &1539505309
 Rigidbody2D:
   serializedVersion: 4
@@ -7783,7 +7783,7 @@ Transform:
   m_GameObject: {fileID: 1569070192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.92, y: 3.34, z: 0}
+  m_LocalPosition: {x: -0.46, y: 2.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7904,7 +7904,6 @@ MonoBehaviour:
   characterRigidbody: {fileID: 1569070195}
   animator: {fileID: 1569070197}
   following: {fileID: 1539505308}
-  partyPosition: 1
 --- !u!1 &1893272065
 GameObject:
   m_ObjectHideFlags: 0

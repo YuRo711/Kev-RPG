@@ -14,9 +14,10 @@ namespace Player
 
         #region Public Methods
 
-        public void Follow(Vector2 newPos)
+        public void Follow(Vector2 newPos, MoveDirections direction)
         {
             characterRigidbody.MovePosition(newPos);
+            AnimateMovement(direction);
         }
 
         #endregion

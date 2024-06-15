@@ -17,19 +17,25 @@ namespace Player
         #endregion
 
         #region Methods
-        
-        protected void AnimateMovement(float inputX, float inputY)
+
+        protected MoveDirections GetMovementDirection(float inputX, float inputY)
         {
             if (inputX != 0)
             {
-                animator.SetInteger(_animatorDirectionHash,
-                    inputX > 0 ? (int)MoveDirections.Right : (int)MoveDirections.Left);
-                animator.SetBool(_animatorIsMovingHash, true);
+                return inputX > 0 ? MoveDirections.Right : MoveDirections.Left;
             }
-            else if (inputY != 0)
+            if (inputY != 0)
             {
-                animator.SetInteger(_animatorDirectionHash,
-                    inputY > 0 ? (int)MoveDirections.Up : (int)MoveDirections.Down);
+                return inputY > 0 ? MoveDirections.Up : MoveDirections.Down;
+            }
+            return MoveDirections.None;
+        }
+        
+        protected void AnimateMovement(MoveDirections moveDirection)
+        {
+            if (moveDirection != MoveDirections.None)
+            {
+                animator.SetInteger(_animatorDirectionHash, (int)moveDirection);
                 animator.SetBool(_animatorIsMovingHash, true);
             }
             else
