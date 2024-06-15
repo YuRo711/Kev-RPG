@@ -20,6 +20,11 @@ namespace Player
             AnimateMovement(direction);
         }
 
+        public void Stop()
+        {
+            AnimateMovement(MoveDirections.None);
+        }
+
         #endregion
 
         #region MonoBehaviour Callbacks

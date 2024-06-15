@@ -33,16 +33,26 @@ namespace Player
         {
             _trace.ShiftRight(transform.position);
             _directionTrace.ShiftRight(moveDirection);
-            
-            if (_trace.MaxIndex < traceDistance)
-                return;
 
             var followerIndex = 1;
             foreach (var follower in followers)
             {
-                follower.Follow(_trace[traceDistance * followerIndex],
-                    _directionTrace[traceDistance * followerIndex]);
+                var index = traceDistance* followerIndex;
+                
+                if (_trace.MaxIndex < index)
+                    return;
+                
+                follower.Follow(_trace[index],
+                    _directionTrace[index]);
                 followerIndex++;
+            }
+        }
+
+        private void StopFollowers()
+        {
+            foreach (var follower in followers)
+            {
+                follower.Stop();
             }
         }
 
@@ -58,6 +68,8 @@ namespace Player
             
             if (inputX != 0 || inputY != 0)
                 LeaveTrace(moveDirection);
+            else
+                StopFollowers();
         }
 
         #endregion
