@@ -7721,9 +7721,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872b1a19cebc809ae8961c2a5b6630d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
   characterRigidbody: {fileID: 1539505309}
   animator: {fileID: 1539505307}
+  followers: []
+  traceLimit: 200
+  traceDistance: 50
+  speed: 15
 --- !u!50 &1539505309
 Rigidbody2D:
   serializedVersion: 4
@@ -7898,9 +7901,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6f665c54a0440aa4856ac0e0be4bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
   characterRigidbody: {fileID: 1569070195}
   animator: {fileID: 1569070197}
+  following: {fileID: 1539505308}
+  partyPosition: 1
 --- !u!1 &1893272065
 GameObject:
   m_ObjectHideFlags: 0

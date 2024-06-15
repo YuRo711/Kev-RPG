@@ -1,25 +1,32 @@
+using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Player
 {
     public class FollowingCharacter : MovingCharacter
     {
-        [SerializeField] private MovingCharacter following;
+        #region Fields
         
-        #region Private Methods
+        [SerializeField] private PlayerMovement following;
 
-        protected override void Move(float inputX, float inputY)
+        #endregion
+
+        #region Public Methods
+
+        public void Follow(Vector2 newPos)
         {
-            
-            AnimateMovement(inputX, inputY);
+            characterRigidbody.MovePosition(newPos);
         }
 
         #endregion
 
         #region MonoBehaviour Callbacks
 
-        private void Update()
+        protected override void Awake()
         {
+            base.Awake();
+            following.followers.Add(this);
         }
 
         #endregion

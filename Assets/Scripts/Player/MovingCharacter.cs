@@ -13,15 +13,10 @@ namespace Player
         
         private int _animatorDirectionHash;
         private int _animatorIsMovingHash;
-        private bool _isActive = true;
-
-        private const float TraceInterval = 0.5f;
 
         #endregion
 
         #region Methods
-        
-        protected virtual void Move(float inputX, float inputY) {}
         
         protected void AnimateMovement(float inputX, float inputY)
         {
@@ -42,21 +37,12 @@ namespace Player
                 animator.SetBool(_animatorIsMovingHash, false);
             }
         }
-
-        protected async UniTask LeaveTrace()
-        {
-            while (_isActive)
-            {
-                
-                await UniTask.WaitForSeconds(TraceInterval);
-            }
-        }
         
         #endregion
 
         #region MonoBehaviour Callbacks
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _animatorDirectionHash = Animator.StringToHash("Direction");
             _animatorIsMovingHash = Animator.StringToHash("IsMoving");
