@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Party;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Combat
@@ -17,12 +19,11 @@ namespace Combat
         [SerializeField] private Image bgImage;
         [SerializeField] private Transform[] enemyPositions;
         [SerializeField] private Transform[] playerPositions;
+        [SerializeField] private EncounterManager manager;
 
         [Header("Prefabs")] 
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private GameObject playerPrefab;
-
-        private EncounterManager _manager;
 
         #endregion
 
@@ -37,22 +38,28 @@ namespace Combat
 
         private void CreateEnemies()
         {
+            var enemyList = new List<Enemy>();
             for (int i = 0; i < encounterData.enemies.Length; i++)
             {
                 var enemy = Instantiate(enemyPrefab, enemyPositions[i]);
-                enemy.GetComponent<Enemy>()
-                    .CreateUnit(encounterData.enemies[i], _manager);
+                var enemyComponent = enemy.GetComponent<Enemy>();
+                enemyComponent.CreateUnit(encounterData.enemies[i], manager);
+                enemyList.Add(enemyComponent);
             }
+            manager.SetEnemies(enemyList);
         }
 
         private void CreatePlayers()
         {
+            var playerList = new List<PlayerUnit>();
             for (int i = 0; i < partyData.charactersData.Length; i++)
             {
                 var unit = Instantiate(playerPrefab, playerPositions[i]);
-                unit.GetComponent<PlayerUnit>()
-                    .CreateUnit(partyData.charactersData[i], _manager);
+                var unitComponent =unit.GetComponent<PlayerUnit>();
+                unitComponent.CreateUnit(partyData.charactersData[i], manager);
+                playerList.Add(unitComponent);
             }
+            manager.SetPlayers(playerList);
         }
 
         #endregion
@@ -61,7 +68,6 @@ namespace Combat
 
         private void Awake()
         {
-            _manager = new EncounterManager();
             CreateEncounter();
         }
 

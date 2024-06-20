@@ -11,8 +11,12 @@ namespace Combat
         private int currentHp;
         private int atk;
         private float def;
+        
         private EncounterManager _manager;
+        private bool _isChosen;
+        
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private UnitPointer pointer;
 
         #endregion
 
@@ -28,6 +32,17 @@ namespace Combat
             def = data.Def;
             spriteRenderer.sprite = data.UnitSprite;
             _manager = manager;
+            pointer.SetVisibility(false);
+        }
+
+        public void Select()
+        {
+            pointer.SetVisibility(true);
+        }
+
+        public void Deselect()
+        {
+            pointer.SetVisibility(false);
         }
 
         public void Attack(BattleUnit target)
