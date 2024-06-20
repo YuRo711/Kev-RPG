@@ -6,11 +6,12 @@ namespace Combat
     {
         #region Fields & Properties
 
-        [SerializeField] private string unitName;
-        [SerializeField] private int maxHp;
-        [SerializeField] private int currentHp;
-        [SerializeField] private int atk;
-        [SerializeField] private float def;
+        private string unitName;
+        private int maxHp;
+        private int currentHp;
+        private int atk;
+        private float def;
+        private EncounterManager _manager;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         #endregion
@@ -18,7 +19,7 @@ namespace Combat
         
         #region Public Methods
 
-        public void CreateUnit(UnitData data)
+        public void CreateUnit(UnitData data, EncounterManager manager)
         {
             unitName = data.UnitName;
             maxHp = data.MaxHp;
@@ -26,6 +27,7 @@ namespace Combat
             atk = data.Atk;
             def = data.Def;
             spriteRenderer.sprite = data.UnitSprite;
+            _manager = manager;
         }
 
         public void Attack(BattleUnit target)

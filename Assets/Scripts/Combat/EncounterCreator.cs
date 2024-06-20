@@ -10,14 +10,26 @@ namespace Combat
         
         [SerializeField] private EncounterData encounterData;
         [SerializeField] private Image bgImage;
+        [SerializeField] private Enemy[] enemyPositions;
+
+        private EncounterManager _manager;
 
         #endregion
 
-        #region Public Methods
+        #region Private Methods
 
-        public void CreateEncounter()
+        private void CreateEncounter()
         {
             bgImage.sprite = encounterData.background;
+            CreateEnemies();
+        }
+
+        private void CreateEnemies()
+        {
+            for (int i = 0; i < encounterData.enemies.Length; i++)
+            {
+                enemyPositions[i].CreateUnit(encounterData.enemies[i], _manager);
+            }
         }
 
         #endregion
@@ -26,6 +38,7 @@ namespace Combat
 
         private void Awake()
         {
+            _manager = new EncounterManager();
             CreateEncounter();
         }
 
