@@ -1,4 +1,5 @@
 using System;
+using Party;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,18 @@ namespace Combat
     {
         #region Fields
         
+        [Header("Data")]
         [SerializeField] private EncounterData encounterData;
+        [SerializeField] private PartyData partyData;
+        
+        [Header("Objects")]
         [SerializeField] private Image bgImage;
-        [SerializeField] private Enemy[] enemyPositions;
+        [SerializeField] private Transform[] enemyPositions;
+        [SerializeField] private Transform[] playerPositions;
+
+        [Header("Prefabs")] 
+        [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject playerPrefab;
 
         private EncounterManager _manager;
 
@@ -22,13 +32,26 @@ namespace Combat
         {
             bgImage.sprite = encounterData.background;
             CreateEnemies();
+            CreatePlayers();
         }
 
         private void CreateEnemies()
         {
             for (int i = 0; i < encounterData.enemies.Length; i++)
             {
-                enemyPositions[i].CreateUnit(encounterData.enemies[i], _manager);
+                var enemy = Instantiate(enemyPrefab, enemyPositions[i]);
+                enemy.GetComponent<Enemy>()
+                    .CreateUnit(encounterData.enemies[i], _manager);
+            }
+        }
+
+        private void CreatePlayers()
+        {
+            for (int i = 0; i < partyData.charactersData.Length; i++)
+            {
+                var unit = Instantiate(playerPrefab, playerPositions[i]);
+                unit.GetComponent<PlayerUnit>()
+                    .CreateUnit(partyData.charactersData[i], _manager);
             }
         }
 
