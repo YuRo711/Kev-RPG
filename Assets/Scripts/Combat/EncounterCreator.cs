@@ -20,6 +20,7 @@ namespace Combat
         [SerializeField] private Transform[] enemyPositions;
         [SerializeField] private Transform[] playerPositions;
         [SerializeField] private EncounterManager manager;
+        [SerializeField] private CharacterSelector selector;
 
         [Header("Prefabs")] 
         [SerializeField] private GameObject enemyPrefab;
@@ -46,7 +47,7 @@ namespace Combat
                 enemyComponent.CreateUnit(encounterData.enemies[i], manager);
                 enemyList.Add(enemyComponent);
             }
-            manager.SetEnemies(enemyList);
+            selector.SetEnemies(enemyList);
         }
 
         private void CreatePlayers()
@@ -59,7 +60,7 @@ namespace Combat
                 unitComponent.CreateUnit(partyData.charactersData[i], manager);
                 playerList.Add(unitComponent);
             }
-            manager.SetPlayers(playerList);
+            selector.SetPlayers(playerList);
         }
 
         #endregion

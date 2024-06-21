@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 1189518840}
   - component: {fileID: 1189518839}
   - component: {fileID: 1189518841}
+  - component: {fileID: 1189518842}
   m_Layer: 0
   m_Name: Encounter
   m_TagString: Untagged
@@ -363,6 +364,7 @@ MonoBehaviour:
   - {fileID: 1730585680}
   - {fileID: 1334648038}
   manager: {fileID: 1189518841}
+  selector: {fileID: 1189518842}
   enemyPrefab: {fileID: 4094881913509153986, guid: fb414bfe6c274d5829423dfe0b6b6c4c, type: 3}
   playerPrefab: {fileID: 5812901481044916757, guid: 3ef7043dbc50d16ba97936a6be7e234e, type: 3}
 --- !u!4 &1189518840
@@ -392,6 +394,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38df55e63d341c7ac0af3e7a6eea380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1189518842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189518838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba5bd7db58c441bb99a12423597e01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1189518841}
 --- !u!1 &1276570833
 GameObject:
   m_ObjectHideFlags: 0
