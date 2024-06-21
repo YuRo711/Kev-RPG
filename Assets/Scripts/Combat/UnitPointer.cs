@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Combat
 {
     public class UnitPointer : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Image image;
 
         public void SetVisibility(bool isVisible)
         {
-            spriteRenderer.enabled = isVisible;
+            image.enabled = isVisible;
         }
     }
 }
