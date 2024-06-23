@@ -61,6 +61,8 @@ namespace Combat
         {
             _isChoosingEnemy = true;
             _onSelect = commandOnSelect;
+            _selectIndex = 0;
+            SelectUnit(_enemies[0]);
         }
 
         #endregion
