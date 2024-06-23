@@ -39,19 +39,11 @@ namespace Combat
             _enemies = enemies;
         }
 
-        public void UndoSelection()
+        public void ExitMenu()
         {
-            if (_isActionSelected)
-            {
-                DeselectUnit(_enemies[_selectIndex]);
-                _isActionSelected = false;
-                ShowUnitMenu();
-            }
-            else if (_isPlayerSelected)
-            {
-                _unitMenu.Hide();
-                _isPlayerSelected = false;
-            }
+            _unitMenu.Hide();
+            _isPlayerSelected = false;
+            _isActionSelected = false;
         }
 
         #endregion
@@ -95,9 +87,9 @@ namespace Combat
 
         private void MoveEnemySelection(int indexChange)
         {
-            DeselectUnit(_playerUnits[_selectIndex]);
+            DeselectUnit(_enemies[_selectIndex]);
             _selectIndex = (_selectIndex + indexChange) % _maxIndex;
-            SelectUnit(_playerUnits[_selectIndex]);
+            SelectUnit(_enemies[_selectIndex]);
         }
 
         private void SelectUnit(BattleUnit unit)
@@ -108,6 +100,20 @@ namespace Combat
         private void DeselectUnit(BattleUnit unit)
         {
             unit.Deselect();
+        }
+
+        private void UndoSelection()
+        {
+            if (_isActionSelected)
+            {
+                DeselectUnit(_enemies[_selectIndex]);
+                _isActionSelected = false;
+                ShowUnitMenu();
+            }
+            else if (_isPlayerSelected)
+            {
+                ExitMenu();
+            }
         }
 
         private void ConfirmChoice()
@@ -141,8 +147,8 @@ namespace Combat
 
         private void ConfirmActionChoice()
         {
-            _unitMenu.Select();
             _isActionSelected = true;
+            _unitMenu.Select();
         }
 
         private void ConfirmEnemyChoice()

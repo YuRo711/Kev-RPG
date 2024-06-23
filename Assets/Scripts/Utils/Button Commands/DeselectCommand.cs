@@ -13,7 +13,7 @@ namespace Utils
         
         public void Execute()
         {
-            _selector.UndoSelection();
+            _selector.ExitMenu();
         }
     }
 }
