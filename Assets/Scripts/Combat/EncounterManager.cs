@@ -9,6 +9,7 @@ namespace Combat
         #region Fields
 
         private PlayerUnit _selectedPlayer;
+        private Enemy _selectedEnemy;
 
         #endregion
 
@@ -17,6 +18,11 @@ namespace Combat
         public void SelectPlayerUnit(PlayerUnit playerUnit)
         {
             _selectedPlayer = playerUnit;
+        }
+
+        public void PlayerAttack()
+        {
+            _selectedPlayer.Attack(_selectedEnemy);
         }
 
         #endregion

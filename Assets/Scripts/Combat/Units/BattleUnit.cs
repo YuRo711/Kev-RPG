@@ -54,6 +54,7 @@ namespace Combat
         {
             var totalDamage = (int)(damage * (1 - def));
             currentHp -= totalDamage;
+            Debug.Log(unitName + " took damage");
             
             if (currentHp <= 0)
                 Die();
