@@ -42,7 +42,7 @@ namespace Combat
             _commands = new()
             {
                 {"back", new DeselectCommand(unitMenu.selector)},
-                {"attack", new AttackCommand(unitMenu.manager)},
+                {"attack", new AttackTargetCommand(unitMenu.selector, unitMenu.manager)},
             };
         }
 

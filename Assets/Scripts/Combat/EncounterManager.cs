@@ -20,6 +20,11 @@ namespace Combat
             _selectedPlayer = playerUnit;
         }
 
+        public void SelectEnemy(Enemy enemy)
+        {
+            _selectedEnemy = enemy;
+        }
+
         public void PlayerAttack()
         {
             _selectedPlayer.Attack(_selectedEnemy);

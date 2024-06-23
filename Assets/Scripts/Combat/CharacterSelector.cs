@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Combat
 {
@@ -18,7 +19,8 @@ namespace Combat
         private int _selectIndex;
         private int _maxIndex;
         private bool _isPlayerSelected;
-        private bool _isActionSelected;
+        private bool _isChoosingEnemy;
+        private ICommand _onSelect;
 
         #endregion
 
@@ -31,7 +33,7 @@ namespace Combat
             _maxIndex = _playerUnits.Count;
             _selectIndex = 0;
             _isPlayerSelected = false;
-            _isActionSelected = false;
+            _isChoosingEnemy = false;
             SelectUnit(_playerUnits[_selectIndex]);
         }
         public void SetEnemies(List<Enemy> enemies)
@@ -39,11 +41,26 @@ namespace Combat
             _enemies = enemies;
         }
 
-        public void ExitMenu()
+        public void UndoSelection()
         {
-            _unitMenu.Hide();
-            _isPlayerSelected = false;
-            _isActionSelected = false;
+            if (_isChoosingEnemy)
+            {
+                DeselectUnit(_enemies[_selectIndex]);
+                _isChoosingEnemy = false;
+                ShowUnitMenu();
+            }
+            else if (_isPlayerSelected)
+            {
+                _unitMenu.Hide();
+                _isPlayerSelected = false;
+                _isChoosingEnemy = false;
+            }
+        }
+
+        public void ActivateEnemySelection(ICommand commandOnSelect)
+        {
+            _isChoosingEnemy = true;
+            _onSelect = commandOnSelect;
         }
 
         #endregion
@@ -65,7 +82,7 @@ namespace Combat
 
         private void MoveSelection(int indexChange)
         {
-            if (_isPlayerSelected && _isActionSelected)
+            if (_isPlayerSelected && _isChoosingEnemy)
                 MoveEnemySelection(indexChange);
             else if (_isPlayerSelected)
                 MoveActionSelection(indexChange);
@@ -102,23 +119,9 @@ namespace Combat
             unit.Deselect();
         }
 
-        private void UndoSelection()
-        {
-            if (_isActionSelected)
-            {
-                DeselectUnit(_enemies[_selectIndex]);
-                _isActionSelected = false;
-                ShowUnitMenu();
-            }
-            else if (_isPlayerSelected)
-            {
-                ExitMenu();
-            }
-        }
-
         private void ConfirmChoice()
         {
-            if (_isPlayerSelected && _isActionSelected)
+            if (_isPlayerSelected && _isChoosingEnemy)
                 ConfirmEnemyChoice();
             else if (_isPlayerSelected)
                 ConfirmActionChoice();
@@ -147,12 +150,13 @@ namespace Combat
 
         private void ConfirmActionChoice()
         {
-            _isActionSelected = true;
             _unitMenu.Select();
         }
 
         private void ConfirmEnemyChoice()
         {
+            manager.SelectEnemy(_enemies[_selectIndex]);
+            _onSelect.Execute();
         }
 
         #endregion
