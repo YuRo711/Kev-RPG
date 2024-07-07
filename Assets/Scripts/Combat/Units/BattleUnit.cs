@@ -17,6 +17,7 @@ namespace Combat
         
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private UnitPointer pointer;
+        [SerializeField] private HealthBar healthBar;
 
         #endregion
 
@@ -54,6 +55,7 @@ namespace Combat
         {
             var totalDamage = (int)(damage * (1 - def));
             currentHp -= totalDamage;
+            UpdateHealth();
             Debug.Log(unitName + " took damage");
             
             if (currentHp <= 0)
@@ -68,6 +70,11 @@ namespace Combat
         protected virtual void Die()
         {
             Debug.Log(unitName + " died");
+        }
+
+        protected virtual void UpdateHealth()
+        {
+            healthBar.UpdateSlider(currentHp / maxHp);
         }
 
         #endregion
