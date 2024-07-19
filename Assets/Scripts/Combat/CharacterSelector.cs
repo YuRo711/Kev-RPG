@@ -102,7 +102,7 @@ namespace Combat
         private void MovePlayerSelection(int indexChange)
         {
             DeselectUnit(_playerUnits[_selectIndex]);
-            while (_playerUnits[_selectIndex].hasMadeTurn)
+            while (_playerUnits[_selectIndex].hasMadeTurn || !_playerUnits[_selectIndex].IsAlive())
             {
                 _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);
             }

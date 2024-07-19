@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utils;
 
 namespace Combat
 {
@@ -19,5 +20,8 @@ namespace Combat
         
         public float Def => def;
         [SerializeField] private float def;
+
+        public string UnitId => unitId;
+        [SerializeField] private string unitId;
     }
 }

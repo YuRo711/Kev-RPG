@@ -17,3 +17,4 @@ MonoBehaviour:
   maxHp: 10
   atk: 1
   def: 0
+  unitId: mushroom

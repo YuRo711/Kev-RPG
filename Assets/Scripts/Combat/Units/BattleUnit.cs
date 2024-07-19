@@ -62,6 +62,8 @@ namespace Combat
                 Die();
         }
 
+        public bool IsAlive() => currentHp > 0;
+
         #endregion
 
         

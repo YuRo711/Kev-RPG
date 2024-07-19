@@ -12,6 +12,7 @@ namespace Combat
 
         private PlayerUnit _selectedPlayer;
         private Enemy _selectedEnemy;
+        
         private List<PlayerUnit> _playerUnits;
         
         [SerializeField] private GameEvent turnEvent;
@@ -19,7 +20,9 @@ namespace Combat
 
         #endregion
 
-        #region Public Fields
+        #region Public Methods
+
+        public int TotalPlayers() => _playerUnits.Count;
 
         public void SelectPlayerUnit(PlayerUnit playerUnit)
         {
@@ -35,6 +38,18 @@ namespace Combat
         {
             _selectedPlayer.Attack(_selectedEnemy);
             ConfirmPlayerTurn();
+        }
+
+        public bool TryAttackPlayer(Enemy enemy, int position)
+        {
+            var player = _playerUnits.ElementAtOrDefault(position);
+            if (player == null)
+                return false;
+            if (!player.IsAlive())
+                return false;
+            
+            enemy.Attack(_playerUnits[position]);
+            return true;
         }
         
         public void SetPlayers(List<PlayerUnit> playerUnits)
