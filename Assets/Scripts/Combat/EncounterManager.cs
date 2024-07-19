@@ -14,9 +14,11 @@ namespace Combat
         private Enemy _selectedEnemy;
         
         private List<PlayerUnit> _playerUnits;
+        private List<Enemy> _enemies;
         
         [SerializeField] private GameEvent turnEvent;
         [SerializeField] private GameEvent playerTurnEvent;
+        [SerializeField] private GameEvent enemyTurnEvent;
 
         #endregion
 
@@ -49,12 +51,18 @@ namespace Combat
                 return false;
             
             enemy.Attack(_playerUnits[position]);
+            Debug.Log(enemy.name + " attacked " + _playerUnits[position].name);
             return true;
         }
         
         public void SetPlayers(List<PlayerUnit> playerUnits)
         {
             _playerUnits = playerUnits;
+        }
+        
+        public void SetEnemies(List<Enemy> enemies)
+        {
+            _enemies = enemies;
         }
 
         #endregion
@@ -63,22 +71,34 @@ namespace Combat
 
         private void ConfirmPlayerTurn()
         {
-            playerTurnEvent.Raise();
             CheckPlayerAvailable();
         }
 
         private void CheckPlayerAvailable()
         {
-            if (!_playerUnits.All(unit => unit.hasMadeTurn))
+            if (_playerUnits.All(unit => unit.hasMadeTurn))
             {
-                NextTurn();
+                Debug.Log("enemy turn");
+                EnemiesTurn();
+                return;
             }
+            playerTurnEvent.Raise();
         }
 
         private void NextTurn()
         {
             turnEvent.Raise();
         }
+
+        private void EnemiesTurn()
+        {
+            enemyTurnEvent.Raise();
+            foreach (var enemy in _enemies)
+            {
+                enemy.MakeTurn();
+            }
+            NextTurn();
+        } 
 
         #endregion
     }

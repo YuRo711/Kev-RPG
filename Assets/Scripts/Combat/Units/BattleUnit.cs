@@ -69,6 +69,11 @@ namespace Combat
         
         #region Protected Methods
 
+        protected virtual void PlayAttackAnimation()
+        {
+            
+        }
+        
         protected virtual void Die()
         {
             Debug.Log(unitName + " died");

@@ -45,9 +45,11 @@ namespace Combat
                 var enemy = Instantiate(enemyPrefab, enemyPositions[i]);
                 var enemyComponent = enemy.GetComponent<Enemy>();
                 enemyComponent.CreateUnit(encounterData.enemies[i], manager);
+                enemyComponent.position = i;
                 enemyList.Add(enemyComponent);
             }
             selector.SetEnemies(enemyList);
+            manager.SetEnemies(enemyList);
         }
 
         private void CreatePlayers()

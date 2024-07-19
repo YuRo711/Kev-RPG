@@ -67,9 +67,14 @@ namespace Combat
 
         public void ReloadSelection()
         {
-            UndoSelection();
-            UndoSelection();
+            ClearSelection();
             MovePlayerSelection(1);
+        }
+
+        public void ClearSelection()
+        {
+            UndoSelection();
+            UndoSelection();
         }
 
         #endregion
