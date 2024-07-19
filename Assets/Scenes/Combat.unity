@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38df55e63d341c7ac0af3e7a6eea380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnEvent: {fileID: 11400000, guid: 42d6c105bca04fe33a74c1963f77665a, type: 2}
+  playerTurnEvent: {fileID: 11400000, guid: ba0b44c1d53f2e71bb67de1d2a627f54, type: 2}
 --- !u!114 &1189518842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +408,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba5bd7db58c441bb99a12423597e01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: ba0b44c1d53f2e71bb67de1d2a627f54, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189518842}
+        m_TargetAssemblyTypeName: Combat.CharacterSelector, Assembly-CSharp
+        m_MethodName: ReloadSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   manager: {fileID: 1189518841}
   unitMenuPrefab: {fileID: 8765422044769108554, guid: 5e4f536871535dff3972b0bc3e2e79ca, type: 3}
 --- !u!1 &1276570833

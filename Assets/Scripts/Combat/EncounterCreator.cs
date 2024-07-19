@@ -61,6 +61,7 @@ namespace Combat
                 playerList.Add(unitComponent);
             }
             selector.SetPlayers(playerList);
+            manager.SetPlayers(playerList);
         }
 
         #endregion

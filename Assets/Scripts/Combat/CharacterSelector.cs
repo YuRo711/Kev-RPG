@@ -5,7 +5,7 @@ using Utils;
 
 namespace Combat
 {
-    public class CharacterSelector : MonoBehaviour
+    public class CharacterSelector : GameEventListener
     {
         #region Fields
 
@@ -65,6 +65,13 @@ namespace Combat
             SelectUnit(_enemies[0]);
         }
 
+        public void ReloadSelection()
+        {
+            UndoSelection();
+            UndoSelection();
+            MovePlayerSelection(1);
+        }
+
         #endregion
 
         
@@ -95,7 +102,10 @@ namespace Combat
         private void MovePlayerSelection(int indexChange)
         {
             DeselectUnit(_playerUnits[_selectIndex]);
-            _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);
+            while (_playerUnits[_selectIndex].hasMadeTurn)
+            {
+                _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);
+            }
             SelectUnit(_playerUnits[_selectIndex]);
         }
 
@@ -157,6 +167,7 @@ namespace Combat
 
         private void ConfirmEnemyChoice()
         {
+            _playerUnits[_selectIndex].hasMadeTurn = true;
             manager.SelectEnemy(_enemies[_selectIndex]);
             _onSelect.Execute();
         }
