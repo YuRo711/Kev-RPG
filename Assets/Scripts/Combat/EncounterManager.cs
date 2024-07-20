@@ -19,6 +19,7 @@ namespace Combat
         [SerializeField] private GameEvent turnEvent;
         [SerializeField] private GameEvent playerTurnEvent;
         [SerializeField] private GameEvent enemyTurnEvent;
+        [SerializeField] private EndBattleUI endBattleUI;
 
         #endregion
 
@@ -83,23 +84,31 @@ namespace Combat
 
         private void CheckPlayerAvailable()
         {
+            if (_enemies.All(enemy => !enemy.IsAlive()))
+            {
+                WinEncounter();
+                return;
+            }
+            
+            if (_playerUnits.All(unit => !unit.IsAlive()))
+            {
+                GameOver();
+                return;
+            }
+            
             if (_playerUnits.All(unit => unit.hasMadeTurn))
             {
                 Debug.Log("enemy turn");
                 EnemiesTurn();
                 return;
             }
+            
             Debug.Log("player turn");
             playerTurnEvent.Raise();
         }
 
         private void NextTurn()
         {
-            if (_enemies.All(enemy => !enemy.IsAlive()))
-            {
-                WinEncounter();
-                return;
-            }
             turnEvent.Raise();
         }
 
@@ -115,12 +124,12 @@ namespace Combat
 
         private void WinEncounter()
         {
-            Debug.Log("you win!");
+            endBattleUI.WinScreen();
         }
 
         private void GameOver()
         {
-            
+            endBattleUI.GameOver();
         }
 
         #endregion
