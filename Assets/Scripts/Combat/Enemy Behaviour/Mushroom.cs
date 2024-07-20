@@ -6,17 +6,15 @@ namespace Combat
 {
     public class Mushroom : Enemy
     {
-        private EncounterManager _manager;
-
         #region Methods
 
         public override void MakeTurn()
         {
             var targetPos = position;
             var playersTried = 0;
-            var totalPlayers = _manager.TotalPlayers();
+            var totalPlayers = Manager.TotalPlayers();
             
-            while (!_manager.TryAttackPlayer(this, targetPos) 
+            while (!Manager.TryAttackPlayer(this, targetPos) 
                    && playersTried < totalPlayers)
             {
                 playersTried++;
@@ -33,8 +31,8 @@ namespace Combat
 
         private void Start()
         {
-            _manager = FindObjectOfType<EncounterManager>();
-            Behaviour = new AttackCommand(_manager);
+            Manager = FindObjectOfType<EncounterManager>();
+            Behaviour = new AttackCommand(Manager);
         }
 
         #endregion

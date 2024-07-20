@@ -82,7 +82,7 @@ namespace Combat
 
         protected virtual void UpdateHealth()
         {
-            healthBar.UpdateSlider(currentHp / maxHp);
+            healthBar.UpdateSlider((float)currentHp / maxHp);
         }
 
         #endregion

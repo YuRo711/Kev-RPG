@@ -65,12 +65,19 @@ namespace Combat
             _enemies = enemies;
         }
 
+        public void RemoveEnemy(Enemy enemy)
+        {
+            _enemies.Remove(enemy);
+        }
+
         #endregion
 
         #region Private Methods
 
         private void ConfirmPlayerTurn()
         {
+            _selectedPlayer.hasMadeTurn = true;
+            _selectedPlayer.Deselect();
             CheckPlayerAvailable();
         }
 
@@ -82,11 +89,17 @@ namespace Combat
                 EnemiesTurn();
                 return;
             }
+            Debug.Log("player turn");
             playerTurnEvent.Raise();
         }
 
         private void NextTurn()
         {
+            if (_enemies.All(enemy => !enemy.IsAlive()))
+            {
+                WinEncounter();
+                return;
+            }
             turnEvent.Raise();
         }
 

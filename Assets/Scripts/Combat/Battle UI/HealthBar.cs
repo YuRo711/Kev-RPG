@@ -8,10 +8,9 @@ namespace Combat
     {
         [SerializeField] private Slider slider;
 
-        public void UpdateSlider(int health)
+        public void UpdateSlider(float health)
         {
             slider.value = health;
-            Debug.Log(slider.value);
         }
     }
 }

@@ -68,8 +68,13 @@ namespace Combat
         public void ReloadSelection()
         {
             ClearSelection();
-            ClearTurns();
             MovePlayerSelection(1);
+        }
+
+        public void ReloadTurns()
+        {
+            ClearTurns();
+            ReloadSelection();
         }
 
         public void ClearSelection()
@@ -182,7 +187,6 @@ namespace Combat
 
         private void ConfirmEnemyChoice()
         {
-            _playerUnits[_selectIndex].hasMadeTurn = true;
             manager.SelectEnemy(_enemies[_selectIndex]);
             _onSelect.Execute();
         }
