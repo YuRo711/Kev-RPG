@@ -4,9 +4,9 @@ namespace Utils
 {
     public class DeselectCommand : ICommand
     {
-        private readonly CombatSelector _selector;
+        private readonly SelectorsManager _selector;
         
-        public DeselectCommand(CombatSelector selector)
+        public DeselectCommand(SelectorsManager selector)
         {
             _selector = selector;
         }

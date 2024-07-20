@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Combat
 {
-    public class PlayerSelectable : BattleSelectable
+    public class PlayerUnit : BattleSelectable
     {
         public bool hasMadeTurn;
     }

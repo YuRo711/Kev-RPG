@@ -10,10 +10,10 @@ namespace Combat
     {
         #region Fields
 
-        private PlayerSelectable _selectedPlayer;
+        private PlayerUnit _selectedPlayer;
         private Enemy _selectedEnemy;
         
-        private List<PlayerSelectable> _playerUnits;
+        private List<PlayerUnit> _playerUnits;
         private List<Enemy> _enemies;
         
         [SerializeField] private GameEvent turnEvent;
@@ -26,9 +26,9 @@ namespace Combat
 
         public int TotalPlayers() => _playerUnits.Count;
 
-        public void SelectPlayerUnit(PlayerSelectable playerSelectable)
+        public void SelectPlayerUnit(PlayerUnit playerUnit)
         {
-            _selectedPlayer = playerSelectable;
+            _selectedPlayer = playerUnit;
         }
 
         public void SelectEnemy(Enemy enemy)
@@ -55,7 +55,7 @@ namespace Combat
             return true;
         }
         
-        public void SetPlayers(List<PlayerSelectable> playerUnits)
+        public void SetPlayers(List<PlayerUnit> playerUnits)
         {
             _playerUnits = playerUnits;
         }

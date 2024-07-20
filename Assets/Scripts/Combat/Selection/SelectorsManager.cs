@@ -11,17 +11,27 @@ namespace Combat
         private CombatSelector currentSelector;
         private ICommand _onSelectTarget;
 
-        public CombatSelector playerSelector;
+        public PlayerSelector playerSelector;
         public CombatSelector enemySelector;
-        public CombatSelector menuSelector;
+        
+        [SerializeField] private EncounterManager manager;
+        [SerializeField] private GameObject menuPrefab;
 
         #endregion
         
         #region Unity Methods
 
+        public void ResetAllSelection()
+        {
+            playerSelector.ResetTurns();
+            UndoSelection();
+            UndoSelection();
+        }
+
         public void ActivatePlayerSelection()
         {
             currentSelector = playerSelector;
+            playerSelector.Activate();
         }
 
         public void SetCommand(ICommand command)
@@ -41,18 +51,37 @@ namespace Combat
                 UndoSelection();
         }
 
-        private void UndoSelection()
+        public void UndoSelection()
         {
             if (currentSelector == playerSelector) return;
             
             currentSelector.UndoSelection();
-            currentSelector = currentSelector == enemySelector ? menuSelector : playerSelector;
+            currentSelector = currentSelector == enemySelector ? CreateMenu() : playerSelector;
+            currentSelector.Activate();
         }
 
         private void ConfirmSelection()
         {
             if (currentSelector == enemySelector)
+            {
+                ((PlayerUnit)playerSelector.currentUnit).hasMadeTurn = true;
+                manager.SelectEnemy((Enemy)enemySelector.currentUnit);
                 _onSelectTarget?.Execute();
+                return;
+            }
+            if (currentSelector == playerSelector)
+            {
+                manager.SelectPlayerUnit((PlayerUnit)playerSelector.currentUnit);
+                currentSelector = CreateMenu();
+            }
+            currentSelector.Activate();
+        }
+
+        private UnitMenu CreateMenu()
+        {
+            var menuObject = Instantiate(menuPrefab, 
+                ((MonoBehaviour)playerSelector.currentUnit).transform);
+            return menuObject.GetComponent<UnitMenu>();
         }
 
         #endregion

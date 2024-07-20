@@ -21,7 +21,7 @@ namespace Combat
         [SerializeField] private Transform[] playerPositions;
         [SerializeField] private EncounterManager manager;
         
-        [SerializeField] private CombatSelector playerSelector;
+        [SerializeField] private PlayerSelector playerSelector;
         [SerializeField] private CombatSelector enemySelector;
         [SerializeField] private SelectorsManager selectorsManager;
 
@@ -65,11 +65,11 @@ namespace Combat
 
         private void CreatePlayers()
         {
-            var playerList = new List<PlayerSelectable>();
+            var playerList = new List<PlayerUnit>();
             for (int i = 0; i < partyData.charactersData.Length; i++)
             {
                 var unit = Instantiate(playerPrefab, playerPositions[i]);
-                var unitComponent = unit.GetComponent<PlayerSelectable>();
+                var unitComponent = unit.GetComponent<PlayerUnit>();
                 unitComponent.CreateUnit(partyData.charactersData[i], manager);
                 playerList.Add(unitComponent);
             }
@@ -77,7 +77,7 @@ namespace Combat
             var list = new List<IBattleSelectable>();
             foreach (var player in playerList)
                 list.Add(player);
-            enemySelector.SetUnits(list);
+            playerSelector.SetUnits(list);
             
             manager.SetPlayers(playerList);
         }

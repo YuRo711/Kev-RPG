@@ -5,13 +5,15 @@ using Utils;
 
 namespace Combat
 {
-    public class CombatSelector : GameEventListener
+    public class CombatSelector : MonoBehaviour
     {
         #region Fields
         
-        private List<IBattleSelectable> units;
-        private int _selectIndex;
-        private int _maxIndex;
+        protected List<IBattleSelectable> units;
+        protected int _selectIndex;
+        protected int _maxIndex;
+
+        public IBattleSelectable currentUnit;
 
         #endregion
 
@@ -20,9 +22,16 @@ namespace Combat
         public void SetUnits(List<IBattleSelectable> battleUnits)
         {
             units = battleUnits;
+            Debug.Log(name + units);
             _maxIndex = battleUnits.Count;
             _selectIndex = 0;
+        }
+        
+        public virtual void Activate()
+        {
             units[_selectIndex].Select();
+            currentUnit = units[_selectIndex];
+            
         }
 
         public void MoveSelection(int indexChange)
@@ -30,6 +39,7 @@ namespace Combat
             units[_selectIndex].Deselect();
             _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);
             units[_selectIndex].Select();
+            currentUnit = units[_selectIndex];
         }
 
         public virtual void UndoSelection()

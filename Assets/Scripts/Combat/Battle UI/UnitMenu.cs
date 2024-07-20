@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utils;
@@ -15,6 +16,13 @@ namespace Combat
         #endregion
         
         #region Unity Methods
+
+        public override void Activate()
+        {
+            units = GetComponentsInChildren<IBattleSelectable>().ToList();
+            _maxIndex = units.Count;
+            base.Activate();
+        }
 
         public override void UndoSelection()
         {
