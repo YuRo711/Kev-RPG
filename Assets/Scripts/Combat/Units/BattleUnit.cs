@@ -1,8 +1,9 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Combat
 {
-    public abstract class BattleSelectable : MonoBehaviour, IBattleSelectable
+    public abstract class BattleUnit : MonoBehaviour, IBattleSelectable
     {
         #region Fields & Properties
 
@@ -12,12 +13,14 @@ namespace Combat
         private int atk;
         private float def;
         
-        private EncounterManager _manager;
         private bool _isChosen;
+        private int animatorAttackHash;
         
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private UnitPointer pointer;
         [SerializeField] private HealthBar healthBar;
+        [SerializeField] private Animator animator;
+        [SerializeField] private string animatorAttackName;
 
         #endregion
 
@@ -32,7 +35,7 @@ namespace Combat
             atk = data.Atk;
             def = data.Def;
             spriteRenderer.sprite = data.UnitSprite;
-            _manager = manager;
+            animatorAttackHash = Animator.StringToHash(animatorAttackName);
             pointer.SetVisibility(false);
         }
 
@@ -46,7 +49,7 @@ namespace Combat
             pointer.SetVisibility(false);
         }
 
-        public void Attack(BattleSelectable target)
+        public void Attack(BattleUnit target)
         {
             target.TakeDamage(atk);
         }
@@ -69,9 +72,9 @@ namespace Combat
         
         #region Protected Methods
 
-        protected virtual void PlayAttackAnimation()
+        protected void PlayAttackAnimation()
         {
-            
+            animator.Play(animatorAttackHash);
         }
         
         protected virtual void Die()

@@ -9,5 +9,20 @@ namespace Combat
                 unit.hasMadeTurn = false;
             }
         }
+
+        public override void MoveSelection(int indexChange)
+        {
+            base.MoveSelection(indexChange);
+            while (((PlayerUnit)currentUnit).hasMadeTurn)
+            {
+                MoveSelection(1);
+            }
+        }
+        
+        public override void Activate()
+        {
+            MoveSelection(1);
+            base.Activate();
+        }
     }
 }

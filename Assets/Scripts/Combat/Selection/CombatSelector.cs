@@ -31,10 +31,9 @@ namespace Combat
         {
             units[_selectIndex].Select();
             currentUnit = units[_selectIndex];
-            
         }
 
-        public void MoveSelection(int indexChange)
+        public virtual void MoveSelection(int indexChange)
         {
             units[_selectIndex].Deselect();
             _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);
