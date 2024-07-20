@@ -7,13 +7,15 @@ namespace Combat
     public class SelectorsManager : MonoBehaviour
     {
         #region Fields
+
+        public static SelectorsManager Instance;
         
         private CombatSelector currentSelector;
         private ICommand _onSelectTarget;
         private bool recentUndoFlag;
 
         public PlayerSelector playerSelector;
-        public CombatSelector enemySelector;
+        public EnemySelector enemySelector;
         
         [SerializeField] private EncounterManager manager;
         [SerializeField] private GameObject menuPrefab;
@@ -33,6 +35,11 @@ namespace Combat
             playerSelector.ResetTurns();
             UndoSelection();
             UndoSelection();
+        }
+
+        public void RemoveEnemy(Enemy enemy)
+        {
+            enemySelector.RemoveEnemy(enemy);
         }
 
         public void ActivatePlayerSelection()
@@ -107,6 +114,18 @@ namespace Combat
         private void Update()
         {
             ProcessInput();
+        }
+
+        #endregion
+
+        #region MonoBehaviour Callbacks
+
+        private void Awake()
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(gameObject);
         }
 
         #endregion

@@ -14,6 +14,7 @@ namespace Combat
         protected override void Die()
         {
             Manager.RemoveEnemy(this);
+            SelectorsManager.Instance.RemoveEnemy(this);
             base.Die();
         }
     }

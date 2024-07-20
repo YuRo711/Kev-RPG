@@ -22,7 +22,7 @@ namespace Combat
         [SerializeField] private EncounterManager manager;
         
         [SerializeField] private PlayerSelector playerSelector;
-        [SerializeField] private CombatSelector enemySelector;
+        [SerializeField] private EnemySelector enemySelector;
         [SerializeField] private SelectorsManager selectorsManager;
 
         [Header("Prefabs")] 
