@@ -4,10 +4,10 @@ namespace Utils
 {
     public class AttackTargetCommand : ICommand
     {
-        private readonly CharacterSelector _selector;
+        private readonly CombatSelector _selector;
         private readonly EncounterManager _manager;
         
-        public AttackTargetCommand(CharacterSelector selector, EncounterManager manager)
+        public AttackTargetCommand(CombatSelector selector, EncounterManager manager)
         {
             _manager = manager;
             _selector = selector;
@@ -16,7 +16,7 @@ namespace Utils
         public void Execute()
         {
             var onSelect = new AttackCommand(_manager);
-            _selector.ActivateEnemySelection(onSelect);
+            _selector.SetCommand(onSelect);
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Combat
 {
-    public abstract class BattleUnit : MonoBehaviour
+    public abstract class BattleUnit : MonoBehaviour, IBattleUnit
     {
         #region Fields & Properties
 
