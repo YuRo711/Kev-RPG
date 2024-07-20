@@ -22,7 +22,13 @@ namespace Combat
         
         #region Unity Methods
 
-        public void ResetAllSelection()
+        public void OnPlayerTurn()
+        {
+            UndoSelection();
+            UndoSelection();
+        }
+
+        public void OnEnemyTurn()
         {
             playerSelector.ResetTurns();
             UndoSelection();
@@ -90,6 +96,7 @@ namespace Combat
                 ((MonoBehaviour)playerSelector.currentUnit).transform);
             var menu = menuObject.GetComponent<UnitMenu>();
             menu.selectorsManager = this;
+            menu.manager = manager;
             return menu;
         }
 
