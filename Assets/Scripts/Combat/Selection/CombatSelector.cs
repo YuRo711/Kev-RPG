@@ -22,13 +22,15 @@ namespace Combat
         public void SetUnits(List<IBattleSelectable> battleUnits)
         {
             units = battleUnits;
-            Debug.Log(name + units);
             _maxIndex = battleUnits.Count;
             _selectIndex = 0;
         }
         
         public virtual void Activate()
         {
+            if (units.Count == 0)
+                return;
+            
             units[_selectIndex].Select();
             currentUnit = units[_selectIndex];
         }

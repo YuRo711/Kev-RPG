@@ -263,6 +263,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTarget: {fileID: 1539505305}
   cam: {fileID: 519420031}
+--- !u!1 &596758662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596758663}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &596758663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596758662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16478324, y: -1.7919824, z: -10.009213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1033273357}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838350907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7731,6 +7763,57 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!1 &1033273356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033273357}
+  - component: {fileID: 1033273358}
+  m_Layer: 0
+  m_Name: Encounters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1033273357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033273356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 596758663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1033273358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033273356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666022714aa04b0a999829b4b9179dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encountersArray:
+  - {fileID: 11400000, guid: 5d22d180045723f18a4f8d8dc1a54fbe, type: 2}
+  - {fileID: 11400000, guid: bb4c9dc466bd9053fa1f7ee45be62c39, type: 2}
+  - {fileID: 11400000, guid: 9d2d8799558ee64c5ba415cf4acd29a6, type: 2}
+  player: {fileID: 1539505308}
+  tickDuration: 0.4
+  encounterProbability: 0.1
 --- !u!1 &1539505304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,6 +7937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRigidbody: {fileID: 1539505309}
   animator: {fileID: 1539505307}
+  isMoving: 0
   followers: []
   traceLimit: 80
   traceDistance: 20
@@ -8079,6 +8163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRigidbody: {fileID: 1569070195}
   animator: {fileID: 1569070197}
+  isMoving: 0
   following: {fileID: 1539505308}
 --- !u!1 &1667437944
 GameObject:
@@ -10653,3 +10738,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1893272067}
   - {fileID: 102065531}
+  - {fileID: 596758663}

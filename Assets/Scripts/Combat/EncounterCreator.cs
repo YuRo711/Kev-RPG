@@ -35,6 +35,8 @@ namespace Combat
 
         private void CreateEncounter()
         {
+            encounterData = CurrentEncounter.EncounterData;
+            
             bgImage.sprite = encounterData.background;
             
             CreateEnemies();

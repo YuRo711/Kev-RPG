@@ -14,6 +14,8 @@ namespace Player
         private int _animatorDirectionHash;
         private int _animatorIsMovingHash;
 
+        public bool isMoving;
+
         #endregion
 
         #region Methods
@@ -37,10 +39,12 @@ namespace Player
             {
                 animator.SetInteger(_animatorDirectionHash, (int)moveDirection);
                 animator.SetBool(_animatorIsMovingHash, true);
+                isMoving = true;
             }
             else
             {
                 animator.SetBool(_animatorIsMovingHash, false);
+                isMoving = false;
             }
         }
         
