@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using UnityEditor.Toolbars;
 using UnityEngine;
 
 namespace Combat
@@ -14,13 +15,14 @@ namespace Combat
         private float def;
         
         private bool _isChosen;
+        
         private int animatorAttackHash;
+        private int animatorHitHash;
         
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private UnitPointer pointer;
         [SerializeField] private HealthBar healthBar;
         [SerializeField] private Animator animator;
-        [SerializeField] private string animatorAttackName;
 
         #endregion
 
@@ -35,7 +37,8 @@ namespace Combat
             atk = data.Atk;
             def = data.Def;
             spriteRenderer.sprite = data.UnitSprite;
-            animatorAttackHash = Animator.StringToHash(animatorAttackName);
+            animatorAttackHash = Animator.StringToHash(data.animatorAttackName);
+            animatorHitHash = Animator.StringToHash(data.animatorHitName);
             pointer.SetVisibility(false);
         }
 
@@ -56,6 +59,7 @@ namespace Combat
 
         public void TakeDamage(int damage)
         {
+            PlayHitAnimation();
             var totalDamage = (int)(damage * (1 - def));
             currentHp -= totalDamage;
             UpdateHealth();
@@ -75,6 +79,11 @@ namespace Combat
         protected void PlayAttackAnimation()
         {
             animator.Play(animatorAttackHash);
+        }
+
+        protected void PlayHitAnimation()
+        {
+            animator.Play(animatorHitHash);
         }
         
         protected virtual void Die()

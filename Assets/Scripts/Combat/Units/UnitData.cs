@@ -23,5 +23,8 @@ namespace Combat
 
         public string UnitId => unitId;
         [SerializeField] private string unitId;
+        
+        public string animatorAttackName;
+        public string animatorHitName;
     }
 }

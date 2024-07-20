@@ -18,3 +18,5 @@ MonoBehaviour:
   atk: 1
   def: 0
   unitId: mushroom
+  animatorAttackName: Mshrm_atck
+  animatorHitName: Mshrm_hit
