@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e362b1bb6e425d89133c0bdeb7c659, type: 3}
+  m_Name: Mushroom
+  m_EditorClassIdentifier: 
+  unitName: Mushroom
+  unitSprite: {fileID: 1839286081, guid: 39dc7012add450114bf37cfa68b9d295, type: 3}
+  maxHp: 3
+  atk: 1
+  def: 0
+  unitId: mushroom
+  animatorAttackName: Mshrm_atck
+  animatorHitName: Mshrm_hit
