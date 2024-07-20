@@ -1,6 +1,6 @@
 namespace Combat
 {
-    public interface IBattleUnit
+    public interface IBattleSelectable
     {
         public void Select();
 

@@ -3,7 +3,7 @@ using Utils;
 
 namespace Combat
 {
-    public class Enemy : BattleUnit
+    public class Enemy : BattleSelectable
     {
         protected EncounterManager Manager;
         public ICommand Behaviour;

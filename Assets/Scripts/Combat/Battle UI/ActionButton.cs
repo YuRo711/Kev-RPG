@@ -6,7 +6,7 @@ using Utils;
 
 namespace Combat
 {
-    public class ActionButton : MonoBehaviour
+    public class ActionButton : MonoBehaviour, IBattleSelectable
     {
         #region Fields
 
@@ -41,8 +41,8 @@ namespace Combat
         {
             _commands = new()
             {
-                {"back", new DeselectCommand(unitMenu.selector)},
-                {"attack", new AttackTargetCommand(unitMenu.selector, unitMenu.manager)},
+                {"back", new DeselectCommand(unitMenu.selectorsManager)},
+                {"attack", new AttackTargetCommand(unitMenu.selectorsManager, unitMenu.manager)},
             };
         }
 

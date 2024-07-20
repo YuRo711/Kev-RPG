@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Combat
 {
-    public abstract class BattleUnit : MonoBehaviour, IBattleUnit
+    public abstract class BattleSelectable : MonoBehaviour, IBattleSelectable
     {
         #region Fields & Properties
 
@@ -46,7 +46,7 @@ namespace Combat
             pointer.SetVisibility(false);
         }
 
-        public void Attack(BattleUnit target)
+        public void Attack(BattleSelectable target)
         {
             target.TakeDamage(atk);
         }

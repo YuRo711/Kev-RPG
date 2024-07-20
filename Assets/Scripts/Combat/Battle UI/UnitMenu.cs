@@ -1,49 +1,25 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utils;
 
 namespace Combat
 {
-    public class UnitMenu : MonoBehaviour
+    public class UnitMenu : CombatSelector
     {
         #region Fields
         
-        public CharacterSelector selector;
         public EncounterManager manager;
-
-        [SerializeField] private ActionButton[] buttons;
-        private int _selectIndex;
+        public SelectorsManager selectorsManager;
 
         #endregion
         
-        #region Public Methods
-        
-        public void MoveSelection(int indexChange)
-        {
-            buttons[_selectIndex].Deselect();
-            _selectIndex = Math.Abs((_selectIndex + indexChange) % buttons.Length);
-            buttons[_selectIndex].Select();
-        }
+        #region Unity Methods
 
-        public void Select()
+        public override void UndoSelection()
         {
-            buttons[_selectIndex].OnClick();
-            Hide();
-        }
-
-        public void Hide()
-        {
+            base.UndoSelection();
             Destroy(gameObject);
-        }
-
-        #endregion
-
-        #region MonoBehaviour Callbacks
-
-        private void Awake()
-        {
-            _selectIndex = 0;
-            buttons[0].Select();
         }
 
         #endregion

@@ -20,8 +20,10 @@ namespace Combat
         [SerializeField] private Transform[] enemyPositions;
         [SerializeField] private Transform[] playerPositions;
         [SerializeField] private EncounterManager manager;
+        
         [SerializeField] private CombatSelector playerSelector;
         [SerializeField] private CombatSelector enemySelector;
+        [SerializeField] private SelectorsManager selectorsManager;
 
         [Header("Prefabs")] 
         [SerializeField] private GameObject enemyPrefab;
@@ -36,6 +38,9 @@ namespace Combat
             bgImage.sprite = encounterData.background;
             CreateEnemies();
             CreatePlayers();
+            selectorsManager.ActivatePlayerSelection();
+            selectorsManager.playerSelector = playerSelector;
+            selectorsManager.enemySelector = enemySelector;
         }
 
         private void CreateEnemies()
@@ -50,7 +55,7 @@ namespace Combat
                 enemyList.Add(enemyComponent);
             }
 
-            var list = new List<IBattleUnit>();
+            var list = new List<IBattleSelectable>();
             foreach (var enemy in enemyList)
                 list.Add(enemy);
             enemySelector.SetUnits(list);
@@ -60,16 +65,16 @@ namespace Combat
 
         private void CreatePlayers()
         {
-            var playerList = new List<PlayerUnit>();
+            var playerList = new List<PlayerSelectable>();
             for (int i = 0; i < partyData.charactersData.Length; i++)
             {
                 var unit = Instantiate(playerPrefab, playerPositions[i]);
-                var unitComponent = unit.GetComponent<PlayerUnit>();
+                var unitComponent = unit.GetComponent<PlayerSelectable>();
                 unitComponent.CreateUnit(partyData.charactersData[i], manager);
                 playerList.Add(unitComponent);
             }
             
-            var list = new List<IBattleUnit>();
+            var list = new List<IBattleSelectable>();
             foreach (var player in playerList)
                 list.Add(player);
             enemySelector.SetUnits(list);
