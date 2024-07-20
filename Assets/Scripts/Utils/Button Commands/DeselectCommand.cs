@@ -1,19 +1,20 @@
 using Combat;
+using UnityEngine;
 
 namespace Utils
 {
     public class DeselectCommand : ICommand
     {
-        private readonly SelectorsManager _selector;
+        private readonly SelectorsManager _selectorManager;
         
-        public DeselectCommand(SelectorsManager selector)
+        public DeselectCommand(SelectorsManager selectorManager)
         {
-            _selector = selector;
+            _selectorManager = selectorManager;
         }
         
         public void Execute()
         {
-            _selector.UndoSelection();
+            _selectorManager.UndoSelection();
         }
     }
 }

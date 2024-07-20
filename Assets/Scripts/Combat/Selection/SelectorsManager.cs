@@ -10,6 +10,7 @@ namespace Combat
         
         private CombatSelector currentSelector;
         private ICommand _onSelectTarget;
+        private bool recentUndoFlag;
 
         public PlayerSelector playerSelector;
         public CombatSelector enemySelector;
@@ -54,34 +55,42 @@ namespace Combat
         public void UndoSelection()
         {
             if (currentSelector == playerSelector) return;
-            
+
+            recentUndoFlag = true;
             currentSelector.UndoSelection();
-            currentSelector = currentSelector == enemySelector ? CreateMenu() : playerSelector;
+            currentSelector = currentSelector is UnitMenu ? playerSelector : CreateMenu();
             currentSelector.Activate();
         }
 
         private void ConfirmSelection()
         {
+            currentSelector.OnSelect();
             if (currentSelector == enemySelector)
             {
                 ((PlayerUnit)playerSelector.currentUnit).hasMadeTurn = true;
                 manager.SelectEnemy((Enemy)enemySelector.currentUnit);
                 _onSelectTarget?.Execute();
-                return;
             }
-            if (currentSelector == playerSelector)
+            else if (currentSelector == playerSelector && !recentUndoFlag)
             {
                 manager.SelectPlayerUnit((PlayerUnit)playerSelector.currentUnit);
                 currentSelector = CreateMenu();
             }
+            else if (!recentUndoFlag)
+            {
+                currentSelector = enemySelector;
+            }
             currentSelector.Activate();
+            recentUndoFlag = false;
         }
 
         private UnitMenu CreateMenu()
         {
             var menuObject = Instantiate(menuPrefab, 
                 ((MonoBehaviour)playerSelector.currentUnit).transform);
-            return menuObject.GetComponent<UnitMenu>();
+            var menu = menuObject.GetComponent<UnitMenu>();
+            menu.selectorsManager = this;
+            return menu;
         }
 
         #endregion

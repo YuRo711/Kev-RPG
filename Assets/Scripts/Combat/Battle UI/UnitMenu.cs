@@ -30,6 +30,12 @@ namespace Combat
             Destroy(gameObject);
         }
 
+        public override void OnSelect()
+        {
+            ((ActionButton)units[_selectIndex]).OnClick();
+            Destroy(gameObject);
+        }
+
         #endregion
     }
 }

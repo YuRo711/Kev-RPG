@@ -47,6 +47,8 @@ namespace Combat
             units[_selectIndex].Deselect();
         }
         
+        public virtual void OnSelect() {}
+        
         #endregion
     }
 }
