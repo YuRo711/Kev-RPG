@@ -68,6 +68,7 @@ namespace Combat
         public void ReloadSelection()
         {
             ClearSelection();
+            ClearTurns();
             MovePlayerSelection(1);
         }
 
@@ -94,6 +95,14 @@ namespace Combat
                 UndoSelection();
         }
 
+        private void ClearTurns()
+        {
+            foreach (var player in _playerUnits)
+            {
+                player.hasMadeTurn = false;
+            }
+        }
+        
         private void MoveSelection(int indexChange)
         {
             if (_isPlayerSelected && _isChoosingEnemy)
@@ -107,6 +116,7 @@ namespace Combat
         private void MovePlayerSelection(int indexChange)
         {
             DeselectUnit(_playerUnits[_selectIndex]);
+            _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);
             while (_playerUnits[_selectIndex].hasMadeTurn || !_playerUnits[_selectIndex].IsAlive())
             {
                 _selectIndex = Math.Abs((_selectIndex + indexChange) % _maxIndex);

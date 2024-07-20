@@ -76,6 +76,7 @@ namespace Combat
         
         protected virtual void Die()
         {
+            Destroy(gameObject);
             Debug.Log(unitName + " died");
         }
 

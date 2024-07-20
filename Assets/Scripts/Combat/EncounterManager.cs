@@ -98,7 +98,17 @@ namespace Combat
                 enemy.MakeTurn();
             }
             NextTurn();
-        } 
+        }
+
+        private void WinEncounter()
+        {
+            Debug.Log("you win!");
+        }
+
+        private void GameOver()
+        {
+            
+        }
 
         #endregion
     }
