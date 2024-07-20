@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Party;
 using UnityEngine;
 using Utils;
 
@@ -9,6 +10,9 @@ namespace Combat
     public class EncounterManager : MonoBehaviour
     {
         #region Fields
+
+        public PartyData partyData;
+        public int rewardMoney;
 
         private PlayerUnit _selectedPlayer;
         private Enemy _selectedEnemy;
@@ -124,7 +128,8 @@ namespace Combat
 
         private void WinEncounter()
         {
-            endBattleUI.WinScreen();
+            partyData.money += rewardMoney;
+            endBattleUI.WinScreen(rewardMoney);
         }
 
         private void GameOver()

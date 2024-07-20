@@ -11,13 +11,15 @@ namespace Combat
 
         public Sprite background;
         public UnitData[] enemies;
+        public int rewardMoney;
 
         #endregion
 
-        public EncounterData(Sprite bg, UnitData[] enemiesData)
+        public EncounterData(Sprite bg, UnitData[] enemiesData, int money)
         {
             background = bg;
             enemies = enemiesData;
+            rewardMoney = money;
         }
     }
 }

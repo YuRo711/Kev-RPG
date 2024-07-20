@@ -16,3 +16,4 @@ MonoBehaviour:
   enemies:
   - {fileID: 11400000, guid: e6a894775da0b86008411466450caeb5, type: 2}
   - {fileID: 11400000, guid: e6a894775da0b86008411466450caeb5, type: 2}
+  rewardMoney: 10

@@ -7,5 +7,6 @@ namespace Party
     public class PartyData : ScriptableObject
     {
         public UnitData[] charactersData;
+        public int money;
     }
 }

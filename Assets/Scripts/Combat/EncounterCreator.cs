@@ -36,11 +36,16 @@ namespace Combat
         private void CreateEncounter()
         {
             bgImage.sprite = encounterData.background;
+            
             CreateEnemies();
             CreatePlayers();
+            
             selectorsManager.ActivatePlayerSelection();
             selectorsManager.playerSelector = playerSelector;
             selectorsManager.enemySelector = enemySelector;
+            
+            manager.partyData = partyData;
+            manager.rewardMoney = encounterData.rewardMoney;
         }
 
         private void CreateEnemies()
