@@ -3,6 +3,7 @@ using Combat;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 using Random = UnityEngine.Random;
 using Vector2 = System.Numerics.Vector2;
 
@@ -16,6 +17,7 @@ namespace Player
         [SerializeField] private MovingCharacter player;
         [SerializeField] private float tickDuration;
         [SerializeField] private float encounterProbability;
+        [SerializeField] private GameEvent moneyEvent;
 
         private bool isActive;
 
@@ -73,6 +75,7 @@ namespace Player
 
         private void Start()
         {
+            moneyEvent.Raise();   
             PlaceCharactersAfterEncounter();
             isActive = true;
             StartTimer();
