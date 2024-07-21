@@ -63,7 +63,7 @@ namespace Combat
             var totalDamage = (int)(damage * (1 - def));
             currentHp -= totalDamage;
             UpdateHealth();
-            Debug.Log(unitName + " took damage");
+            Debug.Log(unitName + " took " + damage + " damage, hp is " + currentHp);
             
             if (currentHp <= 0)
                 Die();
@@ -83,7 +83,7 @@ namespace Combat
 
         protected void PlayHitAnimation()
         {
-            animator.Play(animatorHitHash);
+            animator?.Play(animatorHitHash);
         }
         
         protected virtual void Die()

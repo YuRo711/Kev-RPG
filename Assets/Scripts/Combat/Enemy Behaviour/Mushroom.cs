@@ -1,5 +1,6 @@
 using System;
 using Combat;
+using UnityEngine;
 using Utils;
 
 namespace Combat
@@ -17,9 +18,11 @@ namespace Combat
             while (!Manager.TryAttackPlayer(this, targetPos) 
                    && playersTried < totalPlayers)
             {
+                Debug.Log("failed attack on " + targetPos);
                 playersTried++;
                 targetPos = (targetPos + 1) % totalPlayers;
             }
+            Debug.Log("attack on " + targetPos);
             
             if (playersTried < totalPlayers)
                 PlayAttackAnimation();
