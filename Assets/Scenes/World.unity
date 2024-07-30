@@ -8207,6 +8207,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5d22d180045723f18a4f8d8dc1a54fbe, type: 2}
   - {fileID: 11400000, guid: bb4c9dc466bd9053fa1f7ee45be62c39, type: 2}
   - {fileID: 11400000, guid: 9d2d8799558ee64c5ba415cf4acd29a6, type: 2}
+  - {fileID: 11400000, guid: 55364624b9012b7e08f117f707c288e0, type: 2}
+  - {fileID: 11400000, guid: 02b2dc3d3510e65ff92a9589620cf7b9, type: 2}
+  - {fileID: 11400000, guid: d33fb0a84564dc7bb88d563f9bc5ee7b, type: 2}
+  - {fileID: 11400000, guid: 4fc4ddc1d9cd1469a870c55128c4efb2, type: 2}
   player: {fileID: 1539505308}
   tickDuration: 0.4
   encounterProbability: 0.1

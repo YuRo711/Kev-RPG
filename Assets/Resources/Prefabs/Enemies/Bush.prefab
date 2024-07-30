@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4067294846095777724}
   - component: {fileID: 4896112644778280036}
   - component: {fileID: -2351674459063039644}
-  - component: {fileID: -1484118655751241655}
+  - component: {fileID: 4311880298867316719}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 276338597, guid: f2fa23b1401cb1251881f44cf0dfbd1b, type: 3}
+  m_Sprite: {fileID: -2132798924, guid: 608f15b4fbfa495daae2a49b4609c1c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 1938094692857965483}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0f074d9905b2f63b2bd6c81a233c0d19, type: 2}
+  m_Controller: {fileID: 9100000, guid: 243ed6debdbde52c6897240fa225a04a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,7 +109,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-1484118655751241655
+--- !u!114 &4311880298867316719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,13 +118,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1938094692857965483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92e0a63f22ea4216923ecc12eeadf3ef, type: 3}
+  m_Script: {fileID: 11500000, guid: d1a479ff173c4738a0d7baade71d138f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  pointer: {fileID: 0}
-  healthBar: {fileID: 0}
-  animator: {fileID: 0}
+  spriteRenderer: {fileID: 4896112644778280036}
+  pointer: {fileID: 5410939183735007636}
+  healthBar: {fileID: 4776107581164556395}
+  animator: {fileID: -2351674459063039644}
   position: 0
 --- !u!1 &8065712772707037045
 GameObject:
@@ -280,6 +280,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a292c422e3b04cb5d9da9f4c2cc5f589, type: 3}
+--- !u!114 &4776107581164556395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3010337940129475297, guid: a292c422e3b04cb5d9da9f4c2cc5f589, type: 3}
+  m_PrefabInstance: {fileID: 7750407859452607114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc369082717c4916a1a7c40dfef89221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8843445735336536791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1239829003137454173, guid: a292c422e3b04cb5d9da9f4c2cc5f589, type: 3}
