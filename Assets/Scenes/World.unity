@@ -427,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 537202780}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.02, y: 2.94, z: 0}
+  m_LocalPosition: {x: -0.58, y: 2.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8405,7 +8405,7 @@ MonoBehaviour:
   isMoving: 0
   followers: []
   traceLimit: 80
-  traceDistance: 20
+  traceDistance: 15
   speed: 8
 --- !u!50 &1539505309
 Rigidbody2D:
@@ -8508,7 +8508,7 @@ Transform:
   m_GameObject: {fileID: 1569070192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.46, y: 2.31, z: 0}
+  m_LocalPosition: {x: -1.2, y: 2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
