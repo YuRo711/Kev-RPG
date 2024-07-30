@@ -18,6 +18,6 @@ MonoBehaviour:
   atk: 1
   def: 1
   unitId: 
-  animatorAttackName: 
-  animatorHitName: 
+  animatorAttackName: Spring_cast
+  animatorHitName: Spring_hurt
   animatorController: {fileID: 9100000, guid: 6b300ae95223ecea8b9f2329f8667ce3, type: 2}
