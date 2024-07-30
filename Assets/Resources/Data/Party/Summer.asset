@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Summer
   m_EditorClassIdentifier: 
   unitName: Summer
-  unitSprite: {fileID: 239987852, guid: e387cce974467ff9fbeabf41360a2066, type: 3}
+  unitSprite: {fileID: -1867590204, guid: e30c447485b72602d82b1a210264ffda, type: 3}
   maxHp: 10
   atk: 2
   def: 0
+  unitId: 
+  animatorAttackName: 
+  animatorHitName: Summer_hurt
+  animatorController: {fileID: 9100000, guid: df88ee08887c19bc295a0c36b4d7ec7e, type: 2}

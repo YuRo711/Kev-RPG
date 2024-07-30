@@ -27,7 +27,7 @@ namespace Combat
         
         #region Public Methods
 
-        public void CreateUnit(UnitData data, EncounterManager manager)
+        public void CreateUnit(UnitData data)
         {
             unitName = data.UnitName;
             maxHp = data.MaxHp;
@@ -35,6 +35,7 @@ namespace Combat
             atk = data.Atk;
             def = data.Def;
             spriteRenderer.sprite = data.UnitSprite;
+            animator.runtimeAnimatorController = data.animatorController;
             animatorAttackHash = Animator.StringToHash(data.animatorAttackName);
             animatorHitHash = Animator.StringToHash(data.animatorHitName);
             pointer.SetVisibility(false);
