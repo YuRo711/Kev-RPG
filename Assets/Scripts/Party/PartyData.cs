@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Combat;
+using Items;
 using UnityEngine;
 
 namespace Party
@@ -8,5 +10,6 @@ namespace Party
     {
         public UnitData[] charactersData;
         public int money;
+        public List<ItemData> inventory;
     }
 }
