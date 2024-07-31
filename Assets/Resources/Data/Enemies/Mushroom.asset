@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Mushroom
   unitSprite: {fileID: 1839286081, guid: 39dc7012add450114bf37cfa68b9d295, type: 3}
-  maxHp: 3
+  maxHp: 5
   atk: 2
   def: 0
   unitId: mushroom
   animatorAttackName: Mshrm_atck
   animatorHitName: Mshrm_hit
+  animatorController: {fileID: 9100000, guid: 99c7d666ae4fbee679fd448307df48ea, type: 2}

@@ -57,7 +57,7 @@ namespace Combat
             {
                 var enemy = Instantiate(enemyPrefab, enemyPositions[i]);
                 var enemyComponent = enemy.GetComponent<Enemy>();
-                enemyComponent.CreateUnit(encounterData.enemies[i], manager);
+                enemyComponent.CreateUnit(encounterData.enemies[i]);
                 enemyComponent.position = i;
                 enemyList.Add(enemyComponent);
             }
@@ -77,7 +77,7 @@ namespace Combat
             {
                 var unit = Instantiate(playerPrefab, playerPositions[i]);
                 var unitComponent = unit.GetComponent<PlayerUnit>();
-                unitComponent.CreateUnit(partyData.charactersData[i], manager);
+                unitComponent.CreateUnit(partyData.charactersData[i]);
                 playerList.Add(unitComponent);
             }
             

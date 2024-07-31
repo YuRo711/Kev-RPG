@@ -26,5 +26,6 @@ namespace Combat
         
         public string animatorAttackName;
         public string animatorHitName;
+        public RuntimeAnimatorController animatorController;
     }
 }

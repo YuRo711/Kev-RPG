@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfd85f7dbf3478ebd4d39462be5301c, type: 3}
+  m_Name: Test Encounter 4
+  m_EditorClassIdentifier: 
+  background: {fileID: 21300000, guid: c77c9d64590cc7145b3ee26082ee27b6, type: 3}
+  enemies:
+  - {fileID: 11400000, guid: e6a894775da0b86008411466450caeb5, type: 2}
+  - {fileID: 11400000, guid: 68b78f5f2451161d99642b93092cebeb, type: 2}
+  rewardMoney: 7

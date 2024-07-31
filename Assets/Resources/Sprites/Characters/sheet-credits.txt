@@ -1,0 +1,39 @@
+Authors: bluecarrot16, Evert, TheraHedwig, Benjamin K. Smith (BenCreating), MuffinElZangano, Durrani, Pierre Vigier (pvigier), Eliza Wyatt (ElizaWy), Matthew Krohn (makrohn), Johannes Sj?lund (wulax), Stephen Challener (Redshrike), JaidynReiman, ElizaWy, Fabzy, Michael Whitlock (bigbeargames), Johannes Sjölund (wulax), Nila122
+
+- body/bodies/teen/light.png: by bluecarrot16, Evert, TheraHedwig, Benjamin K. Smith (BenCreating), MuffinElZangano, Durrani, Pierre Vigier (pvigier), Eliza Wyatt (ElizaWy), Matthew Krohn (makrohn), Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-ladies
+    - https://opengameart.org/content/lpc-teen-unisex-base-clothes
+    - https://opengameart.org/content/lpc-jump-expanded
+
+- head/heads/human/male/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. original head by Redshrike; tweaks by BenCreating; modular version by bluecarrot16
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-character-bases
+
+- eyes/human/adult/green.png: by JaidynReiman, Matthew Krohn (makrohn), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. original by Redshrike, mapped to all frames by Matthew Krohn & JaidynReiman
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+
+- eyes/eyebrows/thin/adult/carrot.png: by ElizaWy. License(s): OGA-BY 3.0. 
+    - https://github.com/ElizaWy/LPC/tree/main/Characters/Hair
+
+- hair/spiked2/male/carrot.png: by Fabzy, bluecarrot16. License(s): CC-BY-SA 3.0. 
+    - https://opengameart.org/content/the-revolution-hair
+    - https://opengameart.org/content/lpc-hair
+
+- gloves/female/walnut.png: by Michael Whitlock (bigbeargames), Matthew Krohn (makrohn), Johannes Sjölund (wulax), bluecarrot16. License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- torso/clothes/sleeveless/sleeveless2_vneck/teen/red.png: by ElizaWy, JaidynReiman. License(s): OGA-BY 3.0. original by ElizaWy; sleeveless adapted from original by JaidynReiman
+    - http://opengameart.org/content/lpc-revised-character-basics
+    - https://github.com/ElizaWy/LPC/tree/main/Characters/Clothing
+
+- legs/pants/teen/tan.png: by bluecarrot16, ElizaWy, Stephen Challener (Redshrike). License(s): OGA-BY 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-teen-unisex-base-clothes
+    - http://opengameart.org/content/lpc-clothing-updates
+
+- feet/sandals/female/maroon.png: by Nila122, JaidynReiman, Matthew Krohn (makrohn), Johannes Sjölund (wulax). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 2.0, GPL 3.0. 
+    - https://opengameart.org/content/lpc-roman-armor
+    - http://opengameart.org/content/lpc-clothing-updates

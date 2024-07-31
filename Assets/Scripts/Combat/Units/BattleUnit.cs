@@ -20,14 +20,14 @@ namespace Combat
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private UnitPointer pointer;
         [SerializeField] private HealthBar healthBar;
-        [SerializeField] private Animator animator;
+        [SerializeField] protected Animator animator;
 
         #endregion
 
         
         #region Public Methods
 
-        public void CreateUnit(UnitData data, EncounterManager manager)
+        public virtual void CreateUnit(UnitData data)
         {
             unitName = data.UnitName;
             maxHp = data.MaxHp;
@@ -35,6 +35,7 @@ namespace Combat
             atk = data.Atk;
             def = data.Def;
             spriteRenderer.sprite = data.UnitSprite;
+            animator.runtimeAnimatorController = data.animatorController;
             animatorAttackHash = Animator.StringToHash(data.animatorAttackName);
             animatorHitHash = Animator.StringToHash(data.animatorHitName);
             pointer.SetVisibility(false);
@@ -61,7 +62,6 @@ namespace Combat
             var totalDamage = (int)(damage * (1 - def));
             currentHp -= totalDamage;
             UpdateHealth();
-            Debug.Log(unitName + " took " + damage + " damage, hp is " + currentHp);
             
             if (currentHp <= 0)
                 Die();
@@ -81,7 +81,7 @@ namespace Combat
 
         protected void PlayHitAnimation()
         {
-            animator?.Play(animatorHitHash);
+            animator.Play(animatorHitHash);
         }
         
         protected virtual void Die()
