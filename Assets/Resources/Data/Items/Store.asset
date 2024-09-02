@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97387040e624f3e8fde061e8848dd72, type: 3}
-  m_Name: Summer Store
+  m_Name: Store
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 0f920112055881c62bb176d537ad2af5, type: 2}
+  - left: {fileID: 11400000, guid: 0f920112055881c62bb176d537ad2af5, type: 2}
+    right: 1

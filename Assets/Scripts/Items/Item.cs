@@ -11,18 +11,26 @@ namespace Items
         [SerializeField] private Image image;
         [SerializeField] private TMP_Text priceText;
         [SerializeField] private TMP_Text nameText;
+        private StoreManager _storeManager;
 
         private void Awake()
         {
             if (itemData != null)
-                Initialize(itemData);
+                Initialize(itemData, null);
         }
 
-        public void Initialize(ItemData _itemData)
+        public void Initialize(ItemData _itemData, StoreManager storeManager)
         {
+            _storeManager = storeManager;
             image.sprite = _itemData.sprite;
             priceText.text = _itemData.price.ToString();
             nameText.text = _itemData.itemName;
+            itemData = _itemData;
+        }
+
+        public void Buy()
+        {
+            _storeManager.BuyItem(itemData);
         }
     }
 }

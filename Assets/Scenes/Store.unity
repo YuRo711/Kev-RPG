@@ -1202,6 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccae26fcd5c4958a3e0ca4c402c3bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partyData: {fileID: 11400000, guid: 4f5ab70d899c3b8f6a13d74e2974c5a4, type: 2}
   storeData: {fileID: 11400000, guid: 214c7181e802f7667b6899b717d57b0f, type: 2}
   itemPrefab: {fileID: 5406334332217004862, guid: 40ba6fb5dbfeee4f4b659ee1528f6fe3, type: 3}
   itemsParent: {fileID: 1272882519}
