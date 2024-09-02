@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ed2715dd114e92a3aca9afa2004acd, type: 3}
-  m_Name: Party
+  m_Script: {fileID: 11500000, guid: e97387040e624f3e8fde061e8848dd72, type: 3}
+  m_Name: Store
   m_EditorClassIdentifier: 
-  charactersData:
-  - {fileID: 11400000, guid: 7af1ebe8564d0f705a517a15dc850360, type: 2}
-  - {fileID: 11400000, guid: 4a63c5aafb09048438d01080d295d286, type: 2}
-  money: 150
-  inventory: []
+  items:
+  - left: {fileID: 11400000, guid: 0f920112055881c62bb176d537ad2af5, type: 2}
+    right: 5
