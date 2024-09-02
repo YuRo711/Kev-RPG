@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Party;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Items
 {
@@ -33,6 +34,11 @@ namespace Items
             if (storeData.GetItemStock(itemData).right == 0)
                 Destroy(_items[itemData]);
             partyData.money -= itemData.price;
+        }
+
+        public void LeaveStore()
+        {
+            SceneManager.LoadScene("World");
         }
 
         #endregion
