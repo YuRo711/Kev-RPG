@@ -513,6 +513,8 @@ MonoBehaviour:
   image: {fileID: 5637451106388826830}
   priceText: {fileID: 8391152179452324377}
   nameText: {fileID: 6178290360126440586}
+  buyButton: {fileID: 93914810040304974}
+  buyButtonImage: {fileID: 5190724413032177104}
 --- !u!1 &7103212019131718322
 GameObject:
   m_ObjectHideFlags: 0

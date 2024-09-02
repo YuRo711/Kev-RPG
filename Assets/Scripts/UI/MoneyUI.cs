@@ -15,5 +15,10 @@ namespace UI
         {
             uiText.text = partyData.money.ToString();
         }
+
+        private void Awake()
+        {
+            OnMoneyChange();
+        }
     }
 }

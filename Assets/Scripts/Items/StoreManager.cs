@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Party;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace Items
 {
@@ -12,7 +13,8 @@ namespace Items
         [SerializeField] private StoreData storeData;
         [SerializeField] private GameObject itemPrefab;
         [SerializeField] private Transform itemsParent;
-        private readonly Dictionary<ItemData, GameObject> _items = new ();
+        [SerializeField] private GameEvent moneyEvent;
+        private readonly Dictionary<ItemData, Item> _items = new ();
 
         #region Methods
 
@@ -23,8 +25,9 @@ namespace Items
                 if (itemData.right == 0) continue;
                 
                 var newItem = Instantiate(itemPrefab, itemsParent);
-                newItem.GetComponent<Item>().Initialize(itemData.left, this);
-                _items.Add(itemData.left, newItem);
+                var itemComponent = newItem.GetComponent<Item>();
+                itemComponent.Initialize(itemData.left, this);
+                _items.Add(itemData.left, itemComponent);
             }
         }
 
@@ -32,13 +35,25 @@ namespace Items
         {
             storeData.DecreaseItemStock(itemData);
             if (storeData.GetItemStock(itemData).right == 0)
-                Destroy(_items[itemData]);
+                Destroy(_items[itemData].gameObject);
+            
             partyData.money -= itemData.price;
+            moneyEvent.Raise();
+            CheckPlayerMoney();
         }
 
         public void LeaveStore()
         {
             SceneManager.LoadScene("World");
+        }
+
+        public void CheckPlayerMoney()
+        {
+            foreach (var itemPair in _items)
+            {
+                if (itemPair.Key.price > partyData.money)
+                    itemPair.Value.DisableButton();
+            }
         }
 
         #endregion
@@ -48,6 +63,7 @@ namespace Items
         private void Awake()
         {
             InitializeItems();
+            CheckPlayerMoney();
         }
 
         #endregion

@@ -1218,6 +1218,7 @@ MonoBehaviour:
   storeData: {fileID: 11400000, guid: 214c7181e802f7667b6899b717d57b0f, type: 2}
   itemPrefab: {fileID: 5406334332217004862, guid: 40ba6fb5dbfeee4f4b659ee1528f6fe3, type: 3}
   itemsParent: {fileID: 1272882519}
+  moneyEvent: {fileID: 11400000, guid: e8d89e47175072b48aae5381f724f7a4, type: 2}
 --- !u!4 &2128076755
 Transform:
   m_ObjectHideFlags: 0
