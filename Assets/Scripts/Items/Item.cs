@@ -14,9 +14,15 @@ namespace Items
 
         private void Awake()
         {
-            image.sprite = itemData.sprite;
-            priceText.text = itemData.price.ToString();
-            nameText.text = itemData.itemName;
+            if (itemData != null)
+                Initialize(itemData);
+        }
+
+        public void Initialize(ItemData _itemData)
+        {
+            image.sprite = _itemData.sprite;
+            priceText.text = _itemData.price.ToString();
+            nameText.text = _itemData.itemName;
         }
     }
 }
