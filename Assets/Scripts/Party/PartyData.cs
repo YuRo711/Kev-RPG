@@ -11,5 +11,6 @@ namespace Party
         public UnitData[] charactersData;
         public int money;
         public List<ItemData> inventory;
+        public Vector3 lastPosition;
     }
 }

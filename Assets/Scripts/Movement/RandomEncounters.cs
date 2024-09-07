@@ -18,6 +18,8 @@ namespace Player
         [SerializeField] private float tickDuration;
         [SerializeField] private float encounterProbability;
         [SerializeField] private GameEvent moneyEvent;
+        [SerializeField] private GameEvent endBattleEvent;
+        [SerializeField] private GameEvent startBattleEvent;
 
         private bool isActive;
 
@@ -53,30 +55,19 @@ namespace Player
             var encounterData = encountersArray[index];
             
             CurrentEncounter.EncounterData = encounterData;
-            CurrentEncounter.LastPosition = player.transform.position;
+            startBattleEvent.Raise();
             
             SceneManager.LoadScene("Combat");
         }
 
         #endregion
 
-        private void PlaceCharactersAfterEncounter()
-        {
-            if (CurrentEncounter.LastPosition != Vector3.zero)
-            {
-                foreach (var character in FindObjectsOfType<MovingCharacter>())
-                {
-                    character.transform.position = CurrentEncounter.LastPosition;
-                }
-            }
-        }
-
         #region MB Callbacks
 
         private void Start()
         {
-            moneyEvent.Raise();   
-            PlaceCharactersAfterEncounter();
+            moneyEvent.Raise();
+            endBattleEvent.Raise();
             isActive = true;
             StartTimer();
         }

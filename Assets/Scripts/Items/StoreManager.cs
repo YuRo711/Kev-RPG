@@ -14,6 +14,7 @@ namespace Items
         [SerializeField] private GameObject itemPrefab;
         [SerializeField] private Transform itemsParent;
         [SerializeField] private GameEvent moneyEvent;
+        [SerializeField] private GameEvent exitEvent;
         private readonly Dictionary<ItemData, Item> _items = new ();
 
         #region Methods
@@ -45,6 +46,7 @@ namespace Items
         public void LeaveStore()
         {
             SceneManager.LoadScene("World");
+            exitEvent.Raise();
         }
 
         public void CheckPlayerMoney()
