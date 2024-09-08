@@ -4,13 +4,14 @@ namespace Combat
 {
     public abstract class BattleUnit : MonoBehaviour, IBattleSelectable
     {
-        #region Fields & Properties
+        #region Fields
 
         private string unitName;
         private int maxHp;
         private int currentHp;
         private int atk;
         private float def;
+        private float critProbability;
         
         private bool _isChosen;
         
@@ -34,6 +35,7 @@ namespace Combat
             currentHp = maxHp;
             atk = data.Atk;
             def = data.Def;
+            critProbability = data.CritProbability;
             spriteRenderer.sprite = data.UnitSprite;
             animator.runtimeAnimatorController = data.animatorController;
             animatorAttackHash = Animator.StringToHash(data.animatorAttackName);
@@ -53,7 +55,16 @@ namespace Combat
 
         public void Attack(BattleUnit target)
         {
-            target.TakeDamage(atk);
+            var randomFloat = Random.Range(0f, 1f);
+            var damage = atk;
+            
+            if (randomFloat <= critProbability)
+            {
+                damage *= 2;
+                Debug.Log("critical damage!");
+            }
+            
+            target.TakeDamage(damage);
         }
 
         public void TakeDamage(int damage)

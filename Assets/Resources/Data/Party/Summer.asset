@@ -18,6 +18,7 @@ MonoBehaviour:
   atk: 2
   def: 0
   unitId: 
+  critProbability: 0.05
   animatorAttackName: Summer_cast
   animatorHitName: Summer_hurt
   animatorController: {fileID: 9100000, guid: df88ee08887c19bc295a0c36b4d7ec7e, type: 2}
