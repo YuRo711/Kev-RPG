@@ -1,19 +1,19 @@
-using Combat;
+using Utils;
 
-namespace Utils
+namespace Combat
 {
-    public class AttackCommand : ICommand
+    public class EscapeCommand : ICommand
     {
         private readonly EncounterManager _manager;
         
-        public AttackCommand(EncounterManager manager)
+        public EscapeCommand(EncounterManager manager)
         {
             _manager = manager;
         }
         
         public void Execute()
         {
-            _manager.PlayerAttack();
+            _manager.EscapeBattle();
         }
     }
 }

@@ -1,6 +1,7 @@
 using Combat;
+using Utils;
 
-namespace Utils
+namespace Combat
 {
     public class AttackTargetCommand : ICommand
     {

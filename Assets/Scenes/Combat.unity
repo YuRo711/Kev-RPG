@@ -1155,6 +1155,7 @@ MonoBehaviour:
   playerTurnEvent: {fileID: 11400000, guid: ba0b44c1d53f2e71bb67de1d2a627f54, type: 2}
   enemyTurnEvent: {fileID: 11400000, guid: 9af7952d96c9345fc9bad716a789b06d, type: 2}
   endBattleUI: {fileID: 1651821590}
+  endBattleEvent: {fileID: 11400000, guid: 06578673f71afdae5930c79b99b61ac2, type: 2}
 --- !u!114 &1189518843
 MonoBehaviour:
   m_ObjectHideFlags: 0

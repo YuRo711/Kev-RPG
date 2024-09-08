@@ -1,7 +1,8 @@
 using Combat;
 using UnityEngine;
+using Utils;
 
-namespace Utils
+namespace Combat
 {
     public class DeselectCommand : ICommand
     {

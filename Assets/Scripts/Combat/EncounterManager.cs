@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Party;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 
 namespace Combat
@@ -24,6 +25,7 @@ namespace Combat
         [SerializeField] private GameEvent playerTurnEvent;
         [SerializeField] private GameEvent enemyTurnEvent;
         [SerializeField] private EndBattleUI endBattleUI;
+        [SerializeField] private GameEvent endBattleEvent;
 
         #endregion
 
@@ -73,6 +75,12 @@ namespace Combat
         public void RemoveEnemy(Enemy enemy)
         {
             _enemies.Remove(enemy);
+        }
+        
+        public void EscapeBattle()
+        {
+            SceneManager.LoadScene("World");
+            endBattleEvent.Raise();
         }
 
         #endregion
