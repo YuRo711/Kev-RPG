@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitMenu: {fileID: 3736298520759296775}
-  buttonName: e
+  buttonName: escape
   image: {fileID: 7808527243593745069}
 --- !u!1 &7502734800684737635
 GameObject:
