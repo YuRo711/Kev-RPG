@@ -17,6 +17,7 @@ namespace Player
         [SerializeField] private MovingCharacter player;
         [SerializeField] private float tickDuration;
         [SerializeField] private float encounterProbability;
+        [SerializeField] private float keyProbability;
         [SerializeField] private GameEvent moneyEvent;
         [SerializeField] private GameEvent endBattleEvent;
         [SerializeField] private GameEvent startBattleEvent;
@@ -53,6 +54,10 @@ namespace Player
         {
             var index = (int)(Random.value * encountersArray.Length);
             var encounterData = encountersArray[index];
+            
+            var keyRandom = Random.value;
+            if (keyRandom <= keyProbability)
+                encounterData.SetKey();
             
             CurrentEncounter.EncounterData = encounterData;
             startBattleEvent.Raise();

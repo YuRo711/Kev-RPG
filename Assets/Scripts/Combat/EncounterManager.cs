@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Items;
 using Party;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ namespace Combat
 
         public PartyData partyData;
         public int rewardMoney;
+        public ItemData keyData;
 
         private PlayerUnit _selectedPlayer;
         private Enemy _selectedEnemy;
@@ -137,7 +139,9 @@ namespace Combat
         private void WinEncounter()
         {
             partyData.money += rewardMoney;
-            endBattleUI.WinScreen(rewardMoney);
+            if (keyData != null)
+                partyData.AddItem(keyData);
+            endBattleUI.WinScreen(rewardMoney, keyData != null);
         }
 
         private void GameOver()
