@@ -15,5 +15,7 @@ MonoBehaviour:
   charactersData:
   - {fileID: 11400000, guid: 7af1ebe8564d0f705a517a15dc850360, type: 2}
   - {fileID: 11400000, guid: 4a63c5aafb09048438d01080d295d286, type: 2}
+  - {fileID: 11400000, guid: 9b0592243db7ba15689d7e125bf0f379, type: 2}
   money: 150
   inventory: []
+  lastPosition: {x: -0.8042559, y: -0.082704306, z: 0}
