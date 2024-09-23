@@ -8222,7 +8222,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4fc4ddc1d9cd1469a870c55128c4efb2, type: 2}
   player: {fileID: 1539505308}
   tickDuration: 0.4
-  encounterProbability: 0.1
+  encounterProbability: 0.5
   keyProbability: 0.1
   moneyEvent: {fileID: 11400000, guid: e8d89e47175072b48aae5381f724f7a4, type: 2}
   endBattleEvent: {fileID: 11400000, guid: 06578673f71afdae5930c79b99b61ac2, type: 2}
