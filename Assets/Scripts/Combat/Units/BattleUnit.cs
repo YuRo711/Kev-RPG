@@ -22,6 +22,7 @@ namespace Combat
         [SerializeField] private UnitPointer pointer;
         [SerializeField] private HealthBar healthBar;
         [SerializeField] protected Animator animator;
+        [SerializeField] private GameObject fadingText;
 
         #endregion
 
@@ -73,6 +74,7 @@ namespace Combat
             var totalDamage = (int)(damage * (1 - def));
             currentHp -= totalDamage;
             UpdateHealth();
+            CreateFadingText(damage.ToString(), Color.red);
             
             if (currentHp <= 0)
                 Die();
@@ -104,6 +106,12 @@ namespace Combat
         protected virtual void UpdateHealth()
         {
             healthBar.UpdateSlider((float)currentHp / maxHp);
+        }
+
+        protected void CreateFadingText(string text, Color textColor)
+        {
+            var fadingTextObject = Instantiate(fadingText, transform);
+            fadingTextObject.GetComponent<FadingText>().SetText(text, textColor);
         }
 
         #endregion

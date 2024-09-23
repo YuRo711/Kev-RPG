@@ -104,7 +104,7 @@ MonoBehaviour:
   pointer: {fileID: 5410939183735007636}
   healthBar: {fileID: 4776107581164556395}
   animator: {fileID: -2351674459063039644}
-  animatorAttackName: Mshrm_atck
+  fadingText: {fileID: 5652538106721632118, guid: e17748e54c73b7d3cb22481190a8a8c5, type: 3}
   position: 0
 --- !u!95 &-2351674459063039644
 Animator:
