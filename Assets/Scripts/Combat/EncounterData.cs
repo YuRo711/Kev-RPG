@@ -12,6 +12,7 @@ namespace Combat
         public Sprite background;
         public UnitData[] enemies;
         public int rewardMoney;
+        public bool rewardKey;
 
         #endregion
 
@@ -20,6 +21,11 @@ namespace Combat
             background = bg;
             enemies = enemiesData;
             rewardMoney = money;
+        }
+
+        public void SetKey()
+        {
+            rewardKey = true;
         }
     }
 }

@@ -141,6 +141,7 @@ MonoBehaviour:
   pointer: {fileID: 9005954419970121727}
   healthBar: {fileID: 6046339853111394113}
   animator: {fileID: 2394724121476018445}
+  fadingText: {fileID: 5652538106721632118, guid: e17748e54c73b7d3cb22481190a8a8c5, type: 3}
   hasMadeTurn: 0
 --- !u!212 &699805380775490468
 SpriteRenderer:

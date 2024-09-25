@@ -12,5 +12,10 @@ namespace Party
         public int money;
         public List<ItemData> inventory;
         public Vector3 lastPosition;
+        
+        public void AddItem(ItemData item)
+        {
+            inventory.Add(item);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Items;
 using Party;
 using UnityEngine;
 using Utils;
@@ -12,6 +13,9 @@ namespace Objects
         [SerializeField] private int maxValue;
         [SerializeField] private PartyData partyData;
         [SerializeField] private GameEvent moneyEvent;
+        
+        [SerializeField] private bool containsKey;
+        [SerializeField] private ItemData keyData;
 
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Sprite openSprite;
@@ -25,6 +29,9 @@ namespace Objects
             
             partyData.money += (int)(Random.value * maxValue);
             moneyEvent.Raise();
+            
+            if (containsKey)
+                partyData.AddItem(keyData);
 
             ChestsOpen[number] = true;
             OpenSprite();

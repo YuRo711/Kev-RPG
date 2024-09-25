@@ -17,7 +17,6 @@ namespace Combat
         private static Dictionary<string, ICommand> _commands;
 
         #endregion
-
         
         #region Methods
 
@@ -42,6 +41,7 @@ namespace Combat
             _commands = new()
             {
                 {"back", new DeselectCommand(unitMenu.selectorsManager)},
+                {"escape", new EscapeCommand(unitMenu.manager)},
                 {"attack", new AttackTargetCommand(unitMenu.selectorsManager, unitMenu.manager)},
             };
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Items;
 using Party;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,6 +15,7 @@ namespace Combat
         [Header("Data")]
         [SerializeField] private EncounterData encounterData;
         [SerializeField] private PartyData partyData;
+        [SerializeField] private ItemData keyData;
         
         [Header("Objects")]
         [SerializeField] private Image bgImage;
@@ -48,6 +50,8 @@ namespace Combat
             
             manager.partyData = partyData;
             manager.rewardMoney = encounterData.rewardMoney;
+            if (encounterData.rewardKey)
+                manager.keyData = keyData;
         }
 
         private void CreateEnemies()

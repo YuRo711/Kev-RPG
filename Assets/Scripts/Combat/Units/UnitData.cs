@@ -24,6 +24,9 @@ namespace Combat
         public string UnitId => unitId;
         [SerializeField] private string unitId;
         
+        public float CritProbability => critProbability;
+        [SerializeField] private float critProbability;
+        
         public string animatorAttackName;
         public string animatorHitName;
         public RuntimeAnimatorController animatorController;

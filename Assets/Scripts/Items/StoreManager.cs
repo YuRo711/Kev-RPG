@@ -41,6 +41,8 @@ namespace Items
             partyData.money -= itemData.price;
             moneyEvent.Raise();
             CheckPlayerMoney();
+            
+            partyData.AddItem(itemData);
         }
 
         public void LeaveStore()

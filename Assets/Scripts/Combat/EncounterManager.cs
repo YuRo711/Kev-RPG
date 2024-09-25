@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Items;
 using Party;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 
 namespace Combat
@@ -13,6 +15,7 @@ namespace Combat
 
         public PartyData partyData;
         public int rewardMoney;
+        public ItemData keyData;
 
         private PlayerUnit _selectedPlayer;
         private Enemy _selectedEnemy;
@@ -24,6 +27,7 @@ namespace Combat
         [SerializeField] private GameEvent playerTurnEvent;
         [SerializeField] private GameEvent enemyTurnEvent;
         [SerializeField] private EndBattleUI endBattleUI;
+        [SerializeField] private GameEvent endBattleEvent;
 
         #endregion
 
@@ -73,6 +77,12 @@ namespace Combat
         public void RemoveEnemy(Enemy enemy)
         {
             _enemies.Remove(enemy);
+        }
+        
+        public void EscapeBattle()
+        {
+            SceneManager.LoadScene("World");
+            endBattleEvent.Raise();
         }
 
         #endregion
@@ -129,7 +139,9 @@ namespace Combat
         private void WinEncounter()
         {
             partyData.money += rewardMoney;
-            endBattleUI.WinScreen(rewardMoney);
+            if (keyData != null)
+                partyData.AddItem(keyData);
+            endBattleUI.WinScreen(rewardMoney, keyData != null);
         }
 
         private void GameOver()

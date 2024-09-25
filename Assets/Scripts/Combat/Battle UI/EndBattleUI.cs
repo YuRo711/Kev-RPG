@@ -12,6 +12,7 @@ namespace Combat
 
         [SerializeField] private GameObject gameOverUI;
         [SerializeField] private GameObject winUI;
+        [SerializeField] private GameObject keyUI;
         [SerializeField] private TMP_Text coins;
         [SerializeField] private Image overlay;
 
@@ -25,11 +26,12 @@ namespace Combat
             gameOverUI.SetActive(true);
         }
 
-        public void WinScreen(int reward)
+        public void WinScreen(int reward, bool isKey)
         {
             overlay.enabled = true;
             coins.text = reward.ToString();
             winUI.SetActive(true);
+            keyUI.SetActive(isKey);
         }
 
         public void GoToMap()
