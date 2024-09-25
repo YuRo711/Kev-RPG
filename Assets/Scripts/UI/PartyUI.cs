@@ -1,4 +1,5 @@
 using System;
+using Items;
 using Party;
 using UnityEngine;
 
@@ -9,9 +10,12 @@ namespace UI
         #region Fields
 
         [SerializeField] private UIOverlay overlay;
-        [SerializeField] private GameObject parentObject;
         [SerializeField] private GameObject itemPrefab;
         [SerializeField] private GameObject characterPrefab;
+        
+        [SerializeField] private GameObject parentObject;
+        [SerializeField] private Transform characterParent;
+        [SerializeField] private Transform itemParent;
 
         [SerializeField] private PartyData partyData;
 
@@ -20,6 +24,30 @@ namespace UI
         #endregion
 
         #region Methods
+
+        public void UpdateCharacters()
+        {
+            foreach (Transform child in characterParent)
+                Destroy(child.gameObject);
+            
+            foreach (var character in partyData.charactersData)
+            {
+                var characterObject = Instantiate(characterPrefab, characterParent);
+                characterObject.GetComponent<PartyCharacter>().SetData(character);
+            }
+        }
+
+        public void UpdateItems()
+        {
+            foreach (Transform child in itemParent)
+                Destroy(child.gameObject);
+            
+            foreach (var item in partyData.inventory)
+            {
+                var itemObject = Instantiate(itemPrefab, itemParent);
+                itemObject.GetComponent<InventoryItem>().Initialize(item);
+            }
+        }
 
         public void Exit()
         {

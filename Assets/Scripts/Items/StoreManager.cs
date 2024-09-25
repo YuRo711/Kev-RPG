@@ -15,7 +15,7 @@ namespace Items
         [SerializeField] private Transform itemsParent;
         [SerializeField] private GameEvent moneyEvent;
         [SerializeField] private GameEvent exitEvent;
-        private readonly Dictionary<ItemData, Item> _items = new ();
+        private readonly Dictionary<ItemData, StoreItem> _items = new ();
 
         #region Methods
 
@@ -26,7 +26,7 @@ namespace Items
                 if (itemData.right == 0) continue;
                 
                 var newItem = Instantiate(itemPrefab, itemsParent);
-                var itemComponent = newItem.GetComponent<Item>();
+                var itemComponent = newItem.GetComponent<StoreItem>();
                 itemComponent.Initialize(itemData.left, this);
                 _items.Add(itemData.left, itemComponent);
             }
