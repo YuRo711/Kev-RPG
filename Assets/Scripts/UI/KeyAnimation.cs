@@ -1,32 +1,37 @@
 using Cysharp.Threading.Tasks;
 using Items;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 namespace UI
 {
-    public class KeyAnimation : GameEventListener
+    public class KeyAnimation : MonoBehaviour
     {
         #region Fields
 
-        [SerializeField] private ItemData keyData;
-        [SerializeField] private UIOverlay overlay;
+        [SerializeField] private ItemData[] keyData;
         [SerializeField] private Transform keyTransform;
         [SerializeField] private float duration;
         [SerializeField] private float waitTime;
+        [SerializeField] private Image image;
+        [SerializeField] private UIOverlay overlay;
 
         #endregion
         
         #region Methods
 
-        public void ShowKey()
+        public void ShowKey(int keyId)
         {
-            _ = Appear();
+            Debug.Log(keyId);
+            image.sprite = keyData[keyId].sprite;
+            image.enabled = true;
+            overlay.Activate();
+            _ = Appear(keyId);
         }
 
-        private async UniTask Appear()
+        private async UniTask Appear(int keyId)
         {
-            overlay.Activate();
             keyTransform.localScale = Vector3.zero;
 
             while (keyTransform.localScale != Vector3.one)
@@ -43,7 +48,9 @@ namespace UI
                 await UniTask.WaitForSeconds(duration / 100);
             }
             
-            overlay.Deactivate();
+            image.enabled = false;
+            if (keyId != 1)
+                overlay.Deactivate();
         }
         
         #endregion

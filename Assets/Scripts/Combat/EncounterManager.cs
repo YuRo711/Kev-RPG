@@ -28,6 +28,7 @@ namespace Combat
         [SerializeField] private GameEvent enemyTurnEvent;
         [SerializeField] private EndBattleUI endBattleUI;
         [SerializeField] private GameEvent endBattleEvent;
+        [SerializeField] private GameEvent keyEvent;
 
         #endregion
 
@@ -140,7 +141,11 @@ namespace Combat
         {
             partyData.money += rewardMoney;
             if (keyData != null)
+            {
                 partyData.AddItem(keyData);
+                keyEvent.Raise();
+            }
+
             endBattleUI.WinScreen(rewardMoney, keyData != null);
         }
 

@@ -16,6 +16,7 @@ namespace Objects
         
         [SerializeField] private bool containsKey;
         [SerializeField] private ItemData keyData;
+        [SerializeField] private GameEvent keyEvent;
 
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Sprite openSprite;
@@ -29,9 +30,12 @@ namespace Objects
             
             partyData.money += (int)(Random.value * maxValue);
             moneyEvent.Raise();
-            
+
             if (containsKey)
+            {
                 partyData.AddItem(keyData);
+                keyEvent.Raise();
+            }
 
             _isOpen = true;
             OpenSprite();
