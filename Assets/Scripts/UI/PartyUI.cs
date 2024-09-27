@@ -45,7 +45,8 @@ namespace UI
             foreach (var item in partyData.inventory)
             {
                 var itemObject = Instantiate(itemPrefab, itemParent);
-                itemObject.GetComponent<InventoryItem>().Initialize(item);
+                var itemComponent = itemObject.GetComponent<InventoryItem>();
+                itemComponent.Initialize(item);
             }
         }
 
@@ -76,6 +77,12 @@ namespace UI
                 else
                     Show();
             }
+        }
+
+        private void Start()
+        {
+            UpdateItems();
+            UpdateCharacters();
         }
 
         #endregion

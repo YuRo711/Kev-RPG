@@ -10,6 +10,7 @@ namespace Items
         [SerializeField] private Button buyButton;
         [SerializeField] private Image buyButtonImage;
         private StoreManager _storeManager;
+        [SerializeField] protected TMP_Text priceText;
 
         private void Awake()
         {
@@ -20,6 +21,7 @@ namespace Items
         public void Initialize(ItemData _itemData, StoreManager storeManager)
         {
             _storeManager = storeManager;
+            priceText.text = _itemData.price.ToString();
             Initialize(_itemData);
         }
 

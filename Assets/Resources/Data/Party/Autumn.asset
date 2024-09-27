@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Autumn
   m_EditorClassIdentifier: 
   unitName: Summer
-  unitSprite: {fileID: -1867590204, guid: e30c447485b72602d82b1a210264ffda, type: 3}
+  unitSprite: {fileID: -1145231540, guid: f2e9e87522bc09712a7cf46582187620, type: 3}
   maxHp: 7
   atk: 2
   def: 0
