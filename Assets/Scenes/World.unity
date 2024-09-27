@@ -782,6 +782,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c97c3825464f64924b4d0c4155e41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0cd1b828266faecb3a2d01fb0004d56d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 750506462}
+        m_TargetAssemblyTypeName: UI.PartyUI, Assembly-CSharp
+        m_MethodName: UpdateItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   overlay: {fileID: 1738382924}
   itemPrefab: {fileID: 5406334332217004862, guid: fd54c57601ebf587f91620e942316747, type: 3}
   characterPrefab: {fileID: 4057901194700233062, guid: fe8ac7925b79e5292a6e5fcd6d76b766, type: 3}

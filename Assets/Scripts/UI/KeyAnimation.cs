@@ -1,10 +1,11 @@
 using Cysharp.Threading.Tasks;
 using Items;
 using UnityEngine;
+using Utils;
 
 namespace UI
 {
-    public class KeyAnimation : MonoBehaviour
+    public class KeyAnimation : GameEventListener
     {
         #region Fields
 

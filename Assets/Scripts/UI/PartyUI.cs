@@ -2,10 +2,11 @@ using System;
 using Items;
 using Party;
 using UnityEngine;
+using Utils;
 
 namespace UI
 {
-    public class PartyUI : MonoBehaviour
+    public class PartyUI : GameEventListener
     {
         #region Fields
 
