@@ -1,5 +1,7 @@
+using System.Linq;
 using Party;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utils;
 
@@ -27,11 +29,18 @@ namespace UI
         {
             overlay.Activate();
             parentObject.SetActive(true);
+            CheckKeys();
         }
 
         public void AddKey(int keyId)
         {
             keyImages[keyId].enabled = true;
+        }
+
+        private void CheckKeys()
+        {
+            if (keyImages.All(image => image.enabled))
+                SceneManager.LoadScene("Final");
         }
 
         #endregion
