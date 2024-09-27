@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Utils
 {
-    public class PlayerBoxObject : MonoBehaviour
+    public class PlayerBoxObject : GameEventListener
     {
         [SerializeField] private BoxCollider2D boxCollider;
         protected bool IsPlayerInBox;
@@ -24,5 +24,7 @@ namespace Utils
 
             IsPlayerInBox = false;
         }
+
+        public virtual void OnInteract() { }
     }
 }

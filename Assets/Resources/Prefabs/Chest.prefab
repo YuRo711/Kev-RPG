@@ -222,12 +222,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da179d4d3de640c5aa74b74df0bd08bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 279537bc40e017ec58b56185c46e8525, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6611615325020536585}
+        m_TargetAssemblyTypeName: Objects.Chest, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   boxCollider: {fileID: 1590448091446008816}
   maxValue: 20
   partyData: {fileID: 11400000, guid: 4f5ab70d899c3b8f6a13d74e2974c5a4, type: 2}
   moneyEvent: {fileID: 11400000, guid: e8d89e47175072b48aae5381f724f7a4, type: 2}
+  containsKey: 0
+  keyData: {fileID: 0}
   spriteRenderer: {fileID: 7166668918087234606}
   openSprite: {fileID: -1128770223, guid: d5a75563a029ccbcb818787d294699eb, type: 3}
+  number: 0
 --- !u!114 &5055630779391628998
 MonoBehaviour:
   m_ObjectHideFlags: 0

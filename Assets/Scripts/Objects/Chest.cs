@@ -21,11 +21,11 @@ namespace Objects
         [SerializeField] private Sprite openSprite;
         
         [SerializeField] private int number;
-        private static readonly List<bool> ChestsOpen = new ();
+        private bool _isOpen;
 
-        public void OnInteract()
+        public override void OnInteract()
         {
-            if (!IsPlayerInBox || ChestsOpen[number]) return;
+            if (!IsPlayerInBox || _isOpen) return;
             
             partyData.money += (int)(Random.value * maxValue);
             moneyEvent.Raise();
@@ -33,19 +33,13 @@ namespace Objects
             if (containsKey)
                 partyData.AddItem(keyData);
 
-            ChestsOpen[number] = true;
+            _isOpen = true;
             OpenSprite();
         }
 
         private void OpenSprite()
         {
             spriteRenderer.sprite = openSprite;
-        }
-
-        private void Start()
-        {
-            if (ChestsOpen.Count <= number)
-                ChestsOpen.Add(false);
         }
     }
 }

@@ -9,8 +9,11 @@ namespace Objects
     {
         [SerializeField] private GameEvent enterEvent;
         
-        public void OnInteract()
+        public override void OnInteract()
         {
+            if (!IsPlayerInBox)
+                return;
+            
             enterEvent.Raise();
             SceneManager.LoadScene("Store");
         }
